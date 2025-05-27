@@ -16,14 +16,14 @@ export class Chat extends APIResource {
    * Get available AI models in OpenAI compatible format.
    */
   listModels(options?: RequestOptions): APIPromise<ChatListModelsResponse> {
-    return this._client.get('/api/internal/chat/models', options);
+    return this._client.get('/api/v1/chat/models', options);
   }
 
   /**
    * Get available AI models in the raw internal format.
    */
   listModelsInternal(options?: RequestOptions): APIPromise<unknown> {
-    return this._client.get('/api/internal/chat/internalModels', options);
+    return this._client.get('/api/v1/chat/internalModels', options);
   }
 }
 

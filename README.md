@@ -27,9 +27,7 @@ const client = new PremAI({
 });
 
 async function main() {
-  const response = await client.chat.completions({ messages: [{ role: 'system' }], model: 'model' });
-
-  console.log(response.id);
+  const response = await client.chat.listModelsInternal();
 }
 
 main();
@@ -48,8 +46,7 @@ const client = new PremAI({
 });
 
 async function main() {
-  const params: PremAI.ChatCompletionsParams = { messages: [{ role: 'system' }], model: 'model' };
-  const response: PremAI.ChatCompletionsResponse = await client.chat.completions(params);
+  const response: unknown = await client.chat.listModelsInternal();
 }
 
 main();
@@ -66,17 +63,15 @@ a subclass of `APIError` will be thrown:
 <!-- prettier-ignore -->
 ```ts
 async function main() {
-  const response = await client.chat
-    .completions({ messages: [{ role: 'system' }], model: 'model' })
-    .catch(async (err) => {
-      if (err instanceof PremAI.APIError) {
-        console.log(err.status); // 400
-        console.log(err.name); // BadRequestError
-        console.log(err.headers); // {server: 'nginx', ...}
-      } else {
-        throw err;
-      }
-    });
+  const response = await client.chat.listModelsInternal().catch(async (err) => {
+    if (err instanceof PremAI.APIError) {
+      console.log(err.status); // 400
+      console.log(err.name); // BadRequestError
+      console.log(err.headers); // {server: 'nginx', ...}
+    } else {
+      throw err;
+    }
+  });
 }
 
 main();
@@ -111,7 +106,7 @@ const client = new PremAI({
 });
 
 // Or, configure per-request:
-await client.chat.completions({ messages: [{ role: 'system' }], model: 'model' }, {
+await client.chat.listModelsInternal({
   maxRetries: 5,
 });
 ```
@@ -128,7 +123,7 @@ const client = new PremAI({
 });
 
 // Override per-request:
-await client.chat.completions({ messages: [{ role: 'system' }], model: 'model' }, {
+await client.chat.listModelsInternal({
   timeout: 5 * 1000,
 });
 ```
@@ -151,17 +146,13 @@ Unlike `.asResponse()` this method consumes the body, returning once it is parse
 ```ts
 const client = new PremAI();
 
-const response = await client.chat
-  .completions({ messages: [{ role: 'system' }], model: 'model' })
-  .asResponse();
+const response = await client.chat.listModelsInternal().asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: response, response: raw } = await client.chat
-  .completions({ messages: [{ role: 'system' }], model: 'model' })
-  .withResponse();
+const { data: response, response: raw } = await client.chat.listModelsInternal().withResponse();
 console.log(raw.headers.get('X-My-Header'));
-console.log(response.id);
+console.log(response);
 ```
 
 ### Logging
