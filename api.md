@@ -9,5 +9,5 @@ Types:
 Methods:
 
 - <code title="post /api/v1/chat/completions">client.chat.<a href="./src/resources/chat.ts">completions</a>({ ...params }) -> ChatCompletionsResponse</code>
-- <code title="get /api/internal/chat/models">client.chat.<a href="./src/resources/chat.ts">listModels</a>() -> ChatListModelsResponse</code>
-- <code title="get /api/internal/chat/internalModels">client.chat.<a href="./src/resources/chat.ts">listModelsInternal</a>() -> unknown</code>
+- <code title="get /api/v1/chat/models">client.chat.<a href="./src/resources/chat.ts">listModels</a>() -> ChatListModelsResponse</code>
+- <code title="get /api/v1/chat/internalModels">client.chat.<a href="./src/resources/chat.ts">listModelsInternal</a>() -> unknown</code>
