@@ -302,26 +302,13 @@ describe('instantiate client', () => {
     test('empty env variable', () => {
       process.env['PREMAI_BASE_URL'] = ''; // empty
       const client = new Premai({ apiKey: 'My API Key' });
-      expect(client.baseURL).toEqual('https://localhost');
+      expect(client.baseURL).toEqual('https://studio.premai.io');
     });
 
     test('blank env variable', () => {
       process.env['PREMAI_BASE_URL'] = '  '; // blank
       const client = new Premai({ apiKey: 'My API Key' });
-      expect(client.baseURL).toEqual('https://localhost');
-    });
-
-    test('env variable with environment', () => {
-      process.env['PREMAI_BASE_URL'] = 'https://example.com/from_env';
-
-      expect(
-        () => new Premai({ apiKey: 'My API Key', environment: 'production' }),
-      ).toThrowErrorMatchingInlineSnapshot(
-        `"Ambiguous URL; The \`baseURL\` option (or PREMAI_BASE_URL env var) and the \`environment\` option are given. If you want to use the environment you must pass baseURL: null"`,
-      );
-
-      const client = new Premai({ apiKey: 'My API Key', baseURL: null, environment: 'production' });
-      expect(client.baseURL).toEqual('https://localhost');
+      expect(client.baseURL).toEqual('https://studio.premai.io');
     });
   });
 
