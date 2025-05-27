@@ -22,21 +22,14 @@ import { HeadersLike, NullableHeaders, buildHeaders } from './internal/headers';
 import { FinalRequestOptions, RequestOptions } from './internal/request-options';
 import {
   Chat,
-  ChatCreateCompletionParams,
-  ChatCreateCompletionResponse,
-  ChatRetrieveInternalModelsResponse,
-  ChatRetrieveModelsResponse,
+  ChatCompletionsParams,
+  ChatCompletionsResponse,
+  ChatListModelsInternalResponse,
+  ChatListModelsResponse,
 } from './resources/chat';
 import { readEnv } from './internal/utils/env';
 import { formatRequestDetails, loggerFor } from './internal/utils/log';
 import { isEmptyObj } from './internal/utils/values';
-import { Internal } from './resources/internal/internal';
-
-const environments = {
-  production: 'https://localhost',
-  environment_1: 'https://studio.premai.io',
-};
-type Environment = keyof typeof environments;
 
 export interface ClientOptions {
   /**
@@ -45,18 +38,9 @@ export interface ClientOptions {
   apiKey?: string | undefined;
 
   /**
-   * Specifies the environment to use for the API.
-   *
-   * Each environment maps to a different base URL:
-   * - `production` corresponds to `https://localhost`
-   * - `environment_1` corresponds to `https://studio.premai.io`
-   */
-  environment?: Environment | undefined;
-
-  /**
    * Override the default base URL for the API, e.g., "https://api.example.com/v2/"
    *
-   * Defaults to process.env['PREMAI_BASE_URL'].
+   * Defaults to process.env['PREM_AI_BASE_URL'].
    */
   baseURL?: string | null | undefined;
 
@@ -108,7 +92,7 @@ export interface ClientOptions {
   /**
    * Set the log level.
    *
-   * Defaults to process.env['PREMAI_LOG'] or 'warn' if it isn't set.
+   * Defaults to process.env['PREM_AI_LOG'] or 'warn' if it isn't set.
    */
   logLevel?: LogLevel | undefined;
 
@@ -121,9 +105,9 @@ export interface ClientOptions {
 }
 
 /**
- * API Client for interfacing with the Premai API.
+ * API Client for interfacing with the Prem AI API.
  */
-export class Premai {
+export class PremAI {
   apiKey: string;
 
   baseURL: string;
@@ -139,11 +123,10 @@ export class Premai {
   private _options: ClientOptions;
 
   /**
-   * API Client for interfacing with the Premai API.
+   * API Client for interfacing with the Prem AI API.
    *
    * @param {string | undefined} [opts.apiKey=process.env['PREMAI_API_KEY'] ?? undefined]
-   * @param {Environment} [opts.environment=production] - Specifies the environment URL to use for the API.
-   * @param {string} [opts.baseURL=process.env['PREMAI_BASE_URL'] ?? https://localhost] - Override the default base URL for the API.
+   * @param {string} [opts.baseURL=process.env['PREM_AI_BASE_URL'] ?? https://studio.premai.io] - Override the default base URL for the API.
    * @param {number} [opts.timeout=1 minute] - The maximum amount of time (in milliseconds) the client will wait for a response before timing out.
    * @param {MergedRequestInit} [opts.fetchOptions] - Additional `RequestInit` options to be passed to `fetch` calls.
    * @param {Fetch} [opts.fetch] - Specify a custom `fetch` function implementation.
@@ -152,38 +135,31 @@ export class Premai {
    * @param {Record<string, string | undefined>} opts.defaultQuery - Default query parameters to include with every request to the API.
    */
   constructor({
-    baseURL = readEnv('PREMAI_BASE_URL'),
+    baseURL = readEnv('PREM_AI_BASE_URL'),
     apiKey = readEnv('PREMAI_API_KEY'),
     ...opts
   }: ClientOptions = {}) {
     if (apiKey === undefined) {
-      throw new Errors.PremaiError(
-        "The PREMAI_API_KEY environment variable is missing or empty; either provide it, or instantiate the Premai client with an apiKey option, like new Premai({ apiKey: 'My API Key' }).",
+      throw new Errors.PremAIError(
+        "The PREMAI_API_KEY environment variable is missing or empty; either provide it, or instantiate the PremAI client with an apiKey option, like new PremAI({ apiKey: 'My API Key' }).",
       );
     }
 
     const options: ClientOptions = {
       apiKey,
       ...opts,
-      baseURL,
-      environment: opts.environment ?? 'production',
+      baseURL: baseURL || `https://studio.premai.io`,
     };
 
-    if (baseURL && opts.environment) {
-      throw new Errors.PremaiError(
-        'Ambiguous URL; The `baseURL` option (or PREMAI_BASE_URL env var) and the `environment` option are given. If you want to use the environment you must pass baseURL: null',
-      );
-    }
-
-    this.baseURL = options.baseURL || environments[options.environment || 'production'];
-    this.timeout = options.timeout ?? Premai.DEFAULT_TIMEOUT /* 1 minute */;
+    this.baseURL = options.baseURL!;
+    this.timeout = options.timeout ?? PremAI.DEFAULT_TIMEOUT /* 1 minute */;
     this.logger = options.logger ?? console;
     const defaultLogLevel = 'warn';
     // Set default logLevel early so that we can log a warning in parseLogLevel.
     this.logLevel = defaultLogLevel;
     this.logLevel =
       parseLogLevel(options.logLevel, 'ClientOptions.logLevel', this) ??
-      parseLogLevel(readEnv('PREMAI_LOG'), "process.env['PREMAI_LOG']", this) ??
+      parseLogLevel(readEnv('PREM_AI_LOG'), "process.env['PREM_AI_LOG']", this) ??
       defaultLogLevel;
     this.fetchOptions = options.fetchOptions;
     this.maxRetries = options.maxRetries ?? 2;
@@ -201,8 +177,7 @@ export class Premai {
   withOptions(options: Partial<ClientOptions>): this {
     return new (this.constructor as any as new (props: ClientOptions) => typeof this)({
       ...this._options,
-      environment: options.environment ? options.environment : undefined,
-      baseURL: options.environment ? undefined : this.baseURL,
+      baseURL: this.baseURL,
       maxRetries: this.maxRetries,
       timeout: this.timeout,
       logger: this.logger,
@@ -238,7 +213,7 @@ export class Premai {
         if (value === null) {
           return `${encodeURIComponent(key)}=`;
         }
-        throw new Errors.PremaiError(
+        throw new Errors.PremAIError(
           `Cannot stringify type ${typeof value}; Expected string, number, boolean, or null. If you need to pass nested query parameters, you can manually encode them, e.g. { query: { 'foo[key1]': value1, 'foo[key2]': value2 } }, and please open a GitHub issue requesting better support for your use case.`,
         );
       })
@@ -703,10 +678,10 @@ export class Premai {
     }
   }
 
-  static Premai = this;
+  static PremAI = this;
   static DEFAULT_TIMEOUT = 60000; // 1 minute
 
-  static PremaiError = Errors.PremaiError;
+  static PremAIError = Errors.PremAIError;
   static APIError = Errors.APIError;
   static APIConnectionError = Errors.APIConnectionError;
   static APIConnectionTimeoutError = Errors.APIConnectionTimeoutError;
@@ -723,20 +698,16 @@ export class Premai {
   static toFile = Uploads.toFile;
 
   chat: API.Chat = new API.Chat(this);
-  internal: API.Internal = new API.Internal(this);
 }
-Premai.Chat = Chat;
-Premai.Internal = Internal;
-export declare namespace Premai {
+PremAI.Chat = Chat;
+export declare namespace PremAI {
   export type RequestOptions = Opts.RequestOptions;
 
   export {
     Chat as Chat,
-    type ChatCreateCompletionResponse as ChatCreateCompletionResponse,
-    type ChatRetrieveInternalModelsResponse as ChatRetrieveInternalModelsResponse,
-    type ChatRetrieveModelsResponse as ChatRetrieveModelsResponse,
-    type ChatCreateCompletionParams as ChatCreateCompletionParams,
+    type ChatCompletionsResponse as ChatCompletionsResponse,
+    type ChatListModelsResponse as ChatListModelsResponse,
+    type ChatListModelsInternalResponse as ChatListModelsInternalResponse,
+    type ChatCompletionsParams as ChatCompletionsParams,
   };
-
-  export { Internal as Internal };
 }

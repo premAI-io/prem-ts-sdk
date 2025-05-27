@@ -1,11 +1,11 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import type { Premai } from '../client';
+import type { PremAI } from '../client';
 
 export class APIResource {
-  protected _client: Premai;
+  protected _client: PremAI;
 
-  constructor(client: Premai) {
+  constructor(client: PremAI) {
     this._client = client;
   }
 }

@@ -2,9 +2,8 @@
 
 export {
   Chat,
-  type ChatCreateCompletionResponse,
-  type ChatRetrieveInternalModelsResponse,
-  type ChatRetrieveModelsResponse,
-  type ChatCreateCompletionParams,
+  type ChatCompletionsResponse,
+  type ChatListModelsResponse,
+  type ChatListModelsInternalResponse,
+  type ChatCompletionsParams,
 } from './chat';
-export { Internal } from './internal/internal';

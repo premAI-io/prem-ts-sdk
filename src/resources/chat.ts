@@ -8,32 +8,29 @@ export class Chat extends APIResource {
   /**
    * Create a chat completion (OpenAI compatible).
    */
-  createCompletion(
-    body: ChatCreateCompletionParams,
-    options?: RequestOptions,
-  ): APIPromise<ChatCreateCompletionResponse> {
+  completions(body: ChatCompletionsParams, options?: RequestOptions): APIPromise<ChatCompletionsResponse> {
     return this._client.post('/api/v1/chat/completions', { body, ...options });
-  }
-
-  /**
-   * Get available AI models in the raw internal format.
-   */
-  retrieveInternalModels(options?: RequestOptions): APIPromise<unknown> {
-    return this._client.get('/api/v1/chat/internalModels', options);
   }
 
   /**
    * Get available AI models in OpenAI compatible format.
    */
-  retrieveModels(options?: RequestOptions): APIPromise<ChatRetrieveModelsResponse> {
+  listModels(options?: RequestOptions): APIPromise<ChatListModelsResponse> {
     return this._client.get('/api/v1/chat/models', options);
+  }
+
+  /**
+   * Get available AI models in the raw internal format.
+   */
+  listModelsInternal(options?: RequestOptions): APIPromise<unknown> {
+    return this._client.get('/api/v1/chat/internalModels', options);
   }
 }
 
-export interface ChatCreateCompletionResponse {
+export interface ChatCompletionsResponse {
   id: string;
 
-  choices: Array<ChatCreateCompletionResponse.Choice>;
+  choices: Array<ChatCompletionsResponse.Choice>;
 
   created: number;
 
@@ -43,10 +40,10 @@ export interface ChatCreateCompletionResponse {
 
   system_fingerprint?: string | null;
 
-  usage?: ChatCreateCompletionResponse.Usage;
+  usage?: ChatCompletionsResponse.Usage;
 }
 
-export namespace ChatCreateCompletionResponse {
+export namespace ChatCompletionsResponse {
   export interface Choice {
     finish_reason: 'stop' | 'length' | 'tool_calls' | 'content_filter' | 'function_call';
 
@@ -72,15 +69,13 @@ export namespace ChatCreateCompletionResponse {
   }
 }
 
-export type ChatRetrieveInternalModelsResponse = unknown;
-
-export interface ChatRetrieveModelsResponse {
-  data: Array<ChatRetrieveModelsResponse.Data>;
+export interface ChatListModelsResponse {
+  data: Array<ChatListModelsResponse.Data>;
 
   object: 'list';
 }
 
-export namespace ChatRetrieveModelsResponse {
+export namespace ChatListModelsResponse {
   export interface Data {
     id: string;
 
@@ -92,33 +87,35 @@ export namespace ChatRetrieveModelsResponse {
   }
 }
 
-export interface ChatCreateCompletionParams {
-  frequency_penalty: number;
+export type ChatListModelsInternalResponse = unknown;
 
-  max_completion_tokens: number | null;
-
-  messages: Array<ChatCreateCompletionParams.Message>;
+export interface ChatCompletionsParams {
+  messages: Array<ChatCompletionsParams.Message>;
 
   model: string;
 
-  presence_penalty: number;
+  frequency_penalty?: number;
 
-  stream: boolean;
+  max_completion_tokens?: number | null;
 
-  temperature: number | null;
+  presence_penalty?: number;
 
-  top_p: number | null;
-
-  response_format?: ChatCreateCompletionParams.ResponseFormat;
+  response_format?: ChatCompletionsParams.ResponseFormat;
 
   seed?: number;
 
   stop?: string | Array<string>;
+
+  stream?: boolean;
+
+  temperature?: number | null;
+
+  top_p?: number | null;
 }
 
-export namespace ChatCreateCompletionParams {
+export namespace ChatCompletionsParams {
   export interface Message {
-    role: 'system' | 'user' | 'assistant' | 'tool';
+    role: 'system' | 'user' | 'assistant';
 
     content?: null;
   }
@@ -132,9 +129,9 @@ export namespace ChatCreateCompletionParams {
 
 export declare namespace Chat {
   export {
-    type ChatCreateCompletionResponse as ChatCreateCompletionResponse,
-    type ChatRetrieveInternalModelsResponse as ChatRetrieveInternalModelsResponse,
-    type ChatRetrieveModelsResponse as ChatRetrieveModelsResponse,
-    type ChatCreateCompletionParams as ChatCreateCompletionParams,
+    type ChatCompletionsResponse as ChatCompletionsResponse,
+    type ChatListModelsResponse as ChatListModelsResponse,
+    type ChatListModelsInternalResponse as ChatListModelsInternalResponse,
+    type ChatCompletionsParams as ChatCompletionsParams,
   };
 }
