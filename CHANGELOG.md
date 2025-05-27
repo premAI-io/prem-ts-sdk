@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.1.0-alpha.1 (2025-05-27)
+
+Full Changelog: [v0.0.1-alpha.2...v0.1.0-alpha.1](https://github.com/premAI-io/prem-ts-sdk/compare/v0.0.1-alpha.2...v0.1.0-alpha.1)
+
+### Features
+
+* **api:** api update ([2b7a4eb](https://github.com/premAI-io/prem-ts-sdk/commit/2b7a4eb18d1852b8f1e25da3846ece4d7eaeefc3))
+* **api:** manual updates ([bfe06c7](https://github.com/premAI-io/prem-ts-sdk/commit/bfe06c71fdc5ba9c969b5776e2359896d91f2a08))
+* **api:** manual updates ([bb3ede7](https://github.com/premAI-io/prem-ts-sdk/commit/bb3ede716f9113774147ce4c27dd5c0cf0aefc55))
+* **api:** manual updates ([10b4a45](https://github.com/premAI-io/prem-ts-sdk/commit/10b4a45f2e5b1148da5c8870bcd1dc69a2f0a4ae))
+* **api:** manual updates ([d628c82](https://github.com/premAI-io/prem-ts-sdk/commit/d628c82f59285a8fc74305de91175f8ab7bc6079))
+* **api:** manual updates ([aaec044](https://github.com/premAI-io/prem-ts-sdk/commit/aaec044d923a152abe8cdd35034f62df849e9df9))
+
 ## 0.0.1-alpha.2 (2025-05-27)
 
 Full Changelog: [v0.0.1-alpha.1...v0.0.1-alpha.2](https://github.com/premAI-io/prem-ts-sdk/compare/v0.0.1-alpha.1...v0.0.1-alpha.2)
