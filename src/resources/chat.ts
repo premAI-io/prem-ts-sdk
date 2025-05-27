@@ -8,32 +8,15 @@ export class Chat extends APIResource {
   /**
    * Create a chat completion (OpenAI compatible).
    */
-  createCompletion(
-    body: ChatCreateCompletionParams,
-    options?: RequestOptions,
-  ): APIPromise<ChatCreateCompletionResponse> {
+  completions(body: ChatCompletionsParams, options?: RequestOptions): APIPromise<ChatCompletionsResponse> {
     return this._client.post('/api/v1/chat/completions', { body, ...options });
-  }
-
-  /**
-   * Get available AI models in the raw internal format.
-   */
-  retrieveInternalModels(options?: RequestOptions): APIPromise<unknown> {
-    return this._client.get('/api/v1/chat/internalModels', options);
-  }
-
-  /**
-   * Get available AI models in OpenAI compatible format.
-   */
-  retrieveModels(options?: RequestOptions): APIPromise<ChatRetrieveModelsResponse> {
-    return this._client.get('/api/v1/chat/models', options);
   }
 }
 
-export interface ChatCreateCompletionResponse {
+export interface ChatCompletionsResponse {
   id: string;
 
-  choices: Array<ChatCreateCompletionResponse.Choice>;
+  choices: Array<ChatCompletionsResponse.Choice>;
 
   created: number;
 
@@ -43,10 +26,10 @@ export interface ChatCreateCompletionResponse {
 
   system_fingerprint?: string | null;
 
-  usage?: ChatCreateCompletionResponse.Usage;
+  usage?: ChatCompletionsResponse.Usage;
 }
 
-export namespace ChatCreateCompletionResponse {
+export namespace ChatCompletionsResponse {
   export interface Choice {
     finish_reason: 'stop' | 'length' | 'tool_calls' | 'content_filter' | 'function_call';
 
@@ -72,28 +55,8 @@ export namespace ChatCreateCompletionResponse {
   }
 }
 
-export type ChatRetrieveInternalModelsResponse = unknown;
-
-export interface ChatRetrieveModelsResponse {
-  data: Array<ChatRetrieveModelsResponse.Data>;
-
-  object: 'list';
-}
-
-export namespace ChatRetrieveModelsResponse {
-  export interface Data {
-    id: string;
-
-    created: number;
-
-    object: 'model';
-
-    owned_by: string;
-  }
-}
-
-export interface ChatCreateCompletionParams {
-  messages: Array<ChatCreateCompletionParams.Message>;
+export interface ChatCompletionsParams {
+  messages: Array<ChatCompletionsParams.Message>;
 
   model: string;
 
@@ -103,7 +66,7 @@ export interface ChatCreateCompletionParams {
 
   presence_penalty?: number;
 
-  response_format?: ChatCreateCompletionParams.ResponseFormat;
+  response_format?: ChatCompletionsParams.ResponseFormat;
 
   seed?: number;
 
@@ -116,7 +79,7 @@ export interface ChatCreateCompletionParams {
   top_p?: number | null;
 }
 
-export namespace ChatCreateCompletionParams {
+export namespace ChatCompletionsParams {
   export interface Message {
     role: 'system' | 'user' | 'assistant';
 
@@ -132,9 +95,7 @@ export namespace ChatCreateCompletionParams {
 
 export declare namespace Chat {
   export {
-    type ChatCreateCompletionResponse as ChatCreateCompletionResponse,
-    type ChatRetrieveInternalModelsResponse as ChatRetrieveInternalModelsResponse,
-    type ChatRetrieveModelsResponse as ChatRetrieveModelsResponse,
-    type ChatCreateCompletionParams as ChatCreateCompletionParams,
+    type ChatCompletionsResponse as ChatCompletionsResponse,
+    type ChatCompletionsParams as ChatCompletionsParams,
   };
 }

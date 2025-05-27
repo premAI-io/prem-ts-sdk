@@ -7,10 +7,10 @@ const client = new PremAI({
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
-describe('resource chat', () => {
+describe('resource models', () => {
   // skipped: tests are disabled for the time being
-  test.skip('completions: only required params', async () => {
-    const responsePromise = client.chat.completions({ messages: [{ role: 'system' }], model: 'model' });
+  test.skip('list', async () => {
+    const responsePromise = client.models.list();
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -21,19 +21,14 @@ describe('resource chat', () => {
   });
 
   // skipped: tests are disabled for the time being
-  test.skip('completions: required and optional params', async () => {
-    const response = await client.chat.completions({
-      messages: [{ role: 'system', content: null }],
-      model: 'model',
-      frequency_penalty: -2,
-      max_completion_tokens: 1,
-      presence_penalty: -2,
-      response_format: { json_schema: { foo: 'bar' }, type: 'text' },
-      seed: 0,
-      stop: 'string',
-      stream: true,
-      temperature: 0,
-      top_p: 0,
-    });
+  test.skip('listInternal', async () => {
+    const responsePromise = client.models.listInternal();
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
   });
 });
