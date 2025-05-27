@@ -93,32 +93,32 @@ export namespace ChatRetrieveModelsResponse {
 }
 
 export interface ChatCreateCompletionParams {
-  frequency_penalty: number;
-
-  max_completion_tokens: number | null;
-
   messages: Array<ChatCreateCompletionParams.Message>;
 
   model: string;
 
-  presence_penalty: number;
+  frequency_penalty?: number;
 
-  stream: boolean;
+  max_completion_tokens?: number | null;
 
-  temperature: number | null;
-
-  top_p: number | null;
+  presence_penalty?: number;
 
   response_format?: ChatCreateCompletionParams.ResponseFormat;
 
   seed?: number;
 
   stop?: string | Array<string>;
+
+  stream?: boolean;
+
+  temperature?: number | null;
+
+  top_p?: number | null;
 }
 
 export namespace ChatCreateCompletionParams {
   export interface Message {
-    role: 'system' | 'user' | 'assistant' | 'tool';
+    role: 'system' | 'user' | 'assistant';
 
     content?: null;
   }

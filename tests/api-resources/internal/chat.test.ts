@@ -11,14 +11,8 @@ describe('resource chat', () => {
   // skipped: tests are disabled for the time being
   test.skip('createCompletion: only required params', async () => {
     const responsePromise = client.internal.chat.createCompletion({
-      frequency_penalty: -2,
-      max_completion_tokens: 1,
       messages: [{ role: 'system' }],
       model: 'model',
-      presence_penalty: -2,
-      stream: true,
-      temperature: 0,
-      top_p: 0,
     });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
@@ -32,17 +26,17 @@ describe('resource chat', () => {
   // skipped: tests are disabled for the time being
   test.skip('createCompletion: required and optional params', async () => {
     const response = await client.internal.chat.createCompletion({
-      frequency_penalty: -2,
-      max_completion_tokens: 1,
       messages: [{ role: 'system', content: null }],
       model: 'model',
+      frequency_penalty: -2,
+      max_completion_tokens: 1,
       presence_penalty: -2,
-      stream: true,
-      temperature: 0,
-      top_p: 0,
       response_format: { json_schema: { foo: 'bar' }, type: 'text' },
       seed: 0,
       stop: 'string',
+      stream: true,
+      temperature: 0,
+      top_p: 0,
     });
   });
 
