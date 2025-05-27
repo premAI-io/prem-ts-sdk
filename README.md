@@ -24,7 +24,6 @@ import Premai from 'premai';
 
 const client = new Premai({
   apiKey: process.env['PREMAI_API_KEY'], // This is the default and can be omitted
-  environment: 'environment_1', // defaults to 'production'
 });
 
 async function main() {
@@ -44,7 +43,6 @@ import Premai from 'premai';
 
 const client = new Premai({
   apiKey: process.env['PREMAI_API_KEY'], // This is the default and can be omitted
-  environment: 'environment_1', // defaults to 'production'
 });
 
 async function main() {
