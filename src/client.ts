@@ -20,8 +20,13 @@ import { APIPromise } from './core/api-promise';
 import { type Fetch } from './internal/builtin-types';
 import { HeadersLike, NullableHeaders, buildHeaders } from './internal/headers';
 import { FinalRequestOptions, RequestOptions } from './internal/request-options';
-import { Chat, ChatCompletionsParams, ChatCompletionsResponse } from './resources/chat';
-import { ModelListInternalResponse, ModelListResponse, Models } from './resources/models';
+import {
+  Chat,
+  ChatCompletionsParams,
+  ChatCompletionsResponse,
+  ChatListModelsInternalResponse,
+  ChatListModelsResponse,
+} from './resources/chat';
 import { readEnv } from './internal/utils/env';
 import { formatRequestDetails, loggerFor } from './internal/utils/log';
 import { isEmptyObj } from './internal/utils/values';
@@ -693,22 +698,16 @@ export class PremAI {
   static toFile = Uploads.toFile;
 
   chat: API.Chat = new API.Chat(this);
-  models: API.Models = new API.Models(this);
 }
 PremAI.Chat = Chat;
-PremAI.Models = Models;
 export declare namespace PremAI {
   export type RequestOptions = Opts.RequestOptions;
 
   export {
     Chat as Chat,
     type ChatCompletionsResponse as ChatCompletionsResponse,
+    type ChatListModelsResponse as ChatListModelsResponse,
+    type ChatListModelsInternalResponse as ChatListModelsInternalResponse,
     type ChatCompletionsParams as ChatCompletionsParams,
-  };
-
-  export {
-    Models as Models,
-    type ModelListResponse as ModelListResponse,
-    type ModelListInternalResponse as ModelListInternalResponse,
   };
 }
