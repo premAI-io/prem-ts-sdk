@@ -1,6 +1,6 @@
 import fs from 'fs';
-import type { ResponseLike } from 'premai/internal/to-file';
-import { toFile } from 'premai/core/uploads';
+import type { ResponseLike } from 'premai-sdk-ts/internal/to-file';
+import { toFile } from 'premai-sdk-ts/core/uploads';
 import { File } from 'node:buffer';
 
 class MyClass {
@@ -97,7 +97,7 @@ describe('missing File error message', () => {
   });
 
   test('is thrown', async () => {
-    const uploads = await import('premai/core/uploads');
+    const uploads = await import('premai-sdk-ts/core/uploads');
     await expect(
       uploads.toFile(mockResponse({ url: 'https://example.com/my/audio.mp3' })),
     ).rejects.toMatchInlineSnapshot(
