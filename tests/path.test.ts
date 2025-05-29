@@ -1,4 +1,4 @@
-import { createPathTagFunction, encodeURIPath } from 'premai-ts/internal/utils/path';
+import { createPathTagFunction, encodeURIPath } from 'premai/internal/utils/path';
 import { inspect } from 'node:util';
 
 describe('path template tag function', () => {

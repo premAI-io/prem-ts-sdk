@@ -5,8 +5,8 @@
   "compilerOptions": {
     "rootDir": "./dist/src",
     "paths": {
-      "premai-ts/*": ["dist/src/*"],
-      "premai-ts": ["dist/src/index.ts"]
+      "premai/*": ["dist/src/*"],
+      "premai": ["dist/src/index.ts"]
     },
     "noEmit": false,
     "declaration": true,
