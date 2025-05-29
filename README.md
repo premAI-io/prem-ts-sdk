@@ -6,8 +6,6 @@ This library provides convenient access to the Prem AI REST API from server-side
 
 The full API of this library can be found in [api.md](api.md).
 
-It is generated with [Stainless](https://www.stainless.com/).
-
 ## Installation
 
 ```sh
