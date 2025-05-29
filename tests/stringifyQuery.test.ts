@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { PremAI } from 'premai-ts';
+import { PremAI } from 'premai';
 
 const { stringifyQuery } = PremAI.prototype as any;
 
