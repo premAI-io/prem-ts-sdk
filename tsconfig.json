@@ -9,8 +9,8 @@
     "esModuleInterop": true,
     "baseUrl": "./",
     "paths": {
-      "premai/*": ["src/*"],
-      "premai": ["src/index.ts"]
+      "premai-sdk-ts/*": ["src/*"],
+      "premai-sdk-ts": ["src/index.ts"]
     },
     "noEmit": true,
 
