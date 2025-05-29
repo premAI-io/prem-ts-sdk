@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.1 (2025-05-29)
+
+Full Changelog: [v0.1.0...v0.1.1](https://github.com/premAI-io/prem-ts-sdk/compare/v0.1.0...v0.1.1)
+
+### Chores
+
+* update SDK settings ([7a4a831](https://github.com/premAI-io/prem-ts-sdk/commit/7a4a83134b030604b842d98ed1da4fbf367f5cc9))
+
 ## 0.1.0 (2025-05-29)
 
 Full Changelog: [v0.1.0-alpha.4...v0.1.0](https://github.com/premAI-io/prem-ts-sdk/compare/v0.1.0-alpha.4...v0.1.0)
