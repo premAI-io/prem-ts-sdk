@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.3 (2025-05-30)
+
+Full Changelog: [v0.1.2...v0.1.3](https://github.com/premAI-io/prem-ts-sdk/compare/v0.1.2...v0.1.3)
+
+### Chores
+
+* remove custom code ([5d92810](https://github.com/premAI-io/prem-ts-sdk/commit/5d92810303389f7a8e6d342a827dfd5a59718f7e))
+
 ## 0.1.2 (2025-05-30)
 
 Full Changelog: [v0.1.1...v0.1.2](https://github.com/premAI-io/prem-ts-sdk/compare/v0.1.1...v0.1.2)
