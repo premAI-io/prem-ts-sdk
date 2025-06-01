@@ -5,8 +5,8 @@
   "compilerOptions": {
     "rootDir": "./dist/src",
     "paths": {
-      "premai-sdk-ts/*": ["dist/src/*"],
-      "premai-sdk-ts": ["dist/src/index.ts"]
+      "@premai/premai/*": ["dist/src/*"],
+      "@premai/premai": ["dist/src/index.ts"]
     },
     "noEmit": false,
     "declaration": true,

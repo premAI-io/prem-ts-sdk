@@ -1,5 +1,5 @@
 import { inspect } from 'node:util';
-import { buildHeaders, type HeadersLike, type NullableHeaders } from 'premai-sdk-ts/internal/headers';
+import { buildHeaders, type HeadersLike, type NullableHeaders } from '@premai/premai/internal/headers';
 
 function inspectNullableHeaders(headers: NullableHeaders) {
   return `NullableHeaders {${[
