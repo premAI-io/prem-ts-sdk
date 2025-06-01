@@ -1,6 +1,6 @@
 {
-  "name": "premai-sdk-ts",
-  "version": "0.0.2",
+  "name": "@premai/premai",
+  "version": "0.0.1",
   "description": "The official TypeScript library for the Prem AI API",
   "author": "Prem AI <>",
   "types": "dist/index.d.ts",
@@ -50,8 +50,8 @@
     "synckit": "0.8.8"
   },
   "imports": {
-    "premai-sdk-ts": ".",
-    "premai-sdk-ts/*": "./src/*"
+    "@premai/premai": ".",
+    "@premai/premai/*": "./src/*"
   },
   "exports": {
     ".": {

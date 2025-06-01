@@ -55,12 +55,12 @@ $ cd prem-ts-sdk
 # With yarn
 $ yarn link
 $ cd ../my-package
-$ yarn link premai-sdk-ts
+$ yarn link @premai/premai
 
 # With pnpm
 $ pnpm link --global
 $ cd ../my-package
-$ pnpm link -—global premai-sdk-ts
+$ pnpm link -—global @premai/premai
 ```
 
 ## Running tests
