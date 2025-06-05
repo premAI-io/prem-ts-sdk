@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.4.0 (2025-06-05)
+
+Full Changelog: [v0.0.4...v0.4.0](https://github.com/premAI-io/prem-ts-sdk/compare/v0.0.4...v0.4.0)
+
+### Bug Fixes
+
+* **trigger release:** trigger release ([51e5007](https://github.com/premAI-io/prem-ts-sdk/commit/51e5007bf1723e6f7a2e2c747988a1f06a522e5c))
+
 ## 0.0.4 (2025-06-04)
 
 Full Changelog: [v0.0.2...v0.0.4](https://github.com/premAI-io/prem-ts-sdk/compare/v0.0.2...v0.0.4)
