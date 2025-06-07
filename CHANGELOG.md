@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.4.1 (2025-06-07)
+
+Full Changelog: [v0.4.0...v0.4.1](https://github.com/premAI-io/prem-ts-sdk/compare/v0.4.0...v0.4.1)
+
+### Chores
+
+* avoid type error in certain environments ([7558567](https://github.com/premAI-io/prem-ts-sdk/commit/7558567af5b8bf52308cf20bf19d16684f30d411))
+
 ## 0.4.0 (2025-06-05)
 
 Full Changelog: [v0.0.4...v0.4.0](https://github.com/premAI-io/prem-ts-sdk/compare/v0.0.4...v0.4.0)
