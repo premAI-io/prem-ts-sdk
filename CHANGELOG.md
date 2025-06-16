@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.4.2 (2025-06-14)
+
+Full Changelog: [v0.4.1...v0.4.2](https://github.com/premAI-io/prem-ts-sdk/compare/v0.4.1...v0.4.2)
+
+### Bug Fixes
+
+* publish script — handle NPM errors correctly ([0d2ef16](https://github.com/premAI-io/prem-ts-sdk/commit/0d2ef16b3009d9cc0b848b10b235b2a95411d50f))
+
+
+### Chores
+
+* **internal:** add pure annotations, make base APIResource abstract ([d6e285d](https://github.com/premAI-io/prem-ts-sdk/commit/d6e285de1395904612801b3524ed912ddfff7b50))
+
 ## 0.4.1 (2025-06-07)
 
 Full Changelog: [v0.4.0...v0.4.1](https://github.com/premAI-io/prem-ts-sdk/compare/v0.4.0...v0.4.1)
