@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.5.0 (2025-06-17)
+
+Full Changelog: [v0.4.2...v0.5.0](https://github.com/premAI-io/prem-ts-sdk/compare/v0.4.2...v0.5.0)
+
+### Features
+
+* **client:** add support for endpoint-specific base URLs ([e32e84b](https://github.com/premAI-io/prem-ts-sdk/commit/e32e84be21308809851f41fc63b0ddd85d7fd40a))
+
+
+### Chores
+
+* **client:** refactor imports ([3af1de7](https://github.com/premAI-io/prem-ts-sdk/commit/3af1de7ad825042d42989f5a05cc91c7b8517961))
+
 ## 0.4.2 (2025-06-14)
 
 Full Changelog: [v0.4.1...v0.4.2](https://github.com/premAI-io/prem-ts-sdk/compare/v0.4.1...v0.4.2)
