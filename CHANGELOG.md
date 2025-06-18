@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.5.1 (2025-06-18)
+
+Full Changelog: [v0.5.0...v0.5.1](https://github.com/premAI-io/prem-ts-sdk/compare/v0.5.0...v0.5.1)
+
+### Chores
+
+* **ci:** enable for pull requests ([afaa492](https://github.com/premAI-io/prem-ts-sdk/commit/afaa492bd52b752663eff74286a7ee47aac43df8))
+* **readme:** update badges ([ab449e7](https://github.com/premAI-io/prem-ts-sdk/commit/ab449e74b446d24b6947fd244bc681798e8c4023))
+
 ## 0.5.0 (2025-06-17)
 
 Full Changelog: [v0.4.2...v0.5.0](https://github.com/premAI-io/prem-ts-sdk/compare/v0.4.2...v0.5.0)
