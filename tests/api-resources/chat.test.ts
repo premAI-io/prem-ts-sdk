@@ -33,6 +33,8 @@ describe('resource chat', () => {
       stop: 'string',
       stream: true,
       temperature: 0,
+      tool_choice: 'none',
+      tools: [{}],
       top_p: 0,
     });
   });

@@ -110,6 +110,10 @@ export interface ChatCompletionsParams {
 
   temperature?: number | null;
 
+  tool_choice?: 'none' | 'auto' | unknown;
+
+  tools?: Array<unknown>;
+
   top_p?: number | null;
 }
 
