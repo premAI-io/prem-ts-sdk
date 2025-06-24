@@ -125,7 +125,7 @@ export namespace ChatCompletionsParams {
   }
 
   export interface ResponseFormat {
-    json_schema: Record<string, unknown>;
+    json_schema: { [key: string]: unknown };
 
     type: 'text' | 'json_schema';
   }
