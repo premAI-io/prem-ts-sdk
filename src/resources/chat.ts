@@ -11,20 +11,6 @@ export class Chat extends APIResource {
   completions(body: ChatCompletionsParams, options?: RequestOptions): APIPromise<ChatCompletionsResponse> {
     return this._client.post('/api/v1/chat/completions', { body, ...options });
   }
-
-  /**
-   * Get available AI models in OpenAI compatible format.
-   */
-  listModels(options?: RequestOptions): APIPromise<ChatListModelsResponse> {
-    return this._client.get('/api/v1/chat/models', options);
-  }
-
-  /**
-   * Get available AI models in the raw internal format.
-   */
-  listModelsInternal(options?: RequestOptions): APIPromise<unknown> {
-    return this._client.get('/api/v1/chat/internalModels', options);
-  }
 }
 
 export interface ChatCompletionsResponse {
@@ -68,26 +54,6 @@ export namespace ChatCompletionsResponse {
     total_tokens: number;
   }
 }
-
-export interface ChatListModelsResponse {
-  data: Array<ChatListModelsResponse.Data>;
-
-  object: 'list';
-}
-
-export namespace ChatListModelsResponse {
-  export interface Data {
-    id: string;
-
-    created: number;
-
-    object: 'model';
-
-    owned_by: string;
-  }
-}
-
-export type ChatListModelsInternalResponse = unknown;
 
 export interface ChatCompletionsParams {
   messages: Array<ChatCompletionsParams.Message>;
@@ -134,8 +100,6 @@ export namespace ChatCompletionsParams {
 export declare namespace Chat {
   export {
     type ChatCompletionsResponse as ChatCompletionsResponse,
-    type ChatListModelsResponse as ChatListModelsResponse,
-    type ChatListModelsInternalResponse as ChatListModelsInternalResponse,
     type ChatCompletionsParams as ChatCompletionsParams,
   };
 }
