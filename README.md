@@ -24,9 +24,9 @@ const client = new PremAI({
   apiKey: process.env['PREMAI_API_KEY'], // This is the default and can be omitted
 });
 
-const response = await client.chat.completions({ messages: [{ role: 'system' }], model: 'model' });
+const response = await client.chat.models();
 
-console.log(response.id);
+console.log(response.data);
 ```
 
 ### Request & Response types
@@ -41,8 +41,7 @@ const client = new PremAI({
   apiKey: process.env['PREMAI_API_KEY'], // This is the default and can be omitted
 });
 
-const params: PremAI.ChatCompletionsParams = { messages: [{ role: 'system' }], model: 'model' };
-const response: PremAI.ChatCompletionsResponse = await client.chat.completions(params);
+const response: PremAI.ChatModelsResponse = await client.chat.models();
 ```
 
 Documentation for each method, request param, and response field are available in docstrings and will appear on hover in most modern editors.
@@ -55,17 +54,15 @@ a subclass of `APIError` will be thrown:
 
 <!-- prettier-ignore -->
 ```ts
-const response = await client.chat
-  .completions({ messages: [{ role: 'system' }], model: 'model' })
-  .catch(async (err) => {
-    if (err instanceof PremAI.APIError) {
-      console.log(err.status); // 400
-      console.log(err.name); // BadRequestError
-      console.log(err.headers); // {server: 'nginx', ...}
-    } else {
-      throw err;
-    }
-  });
+const response = await client.chat.models().catch(async (err) => {
+  if (err instanceof PremAI.APIError) {
+    console.log(err.status); // 400
+    console.log(err.name); // BadRequestError
+    console.log(err.headers); // {server: 'nginx', ...}
+  } else {
+    throw err;
+  }
+});
 ```
 
 Error codes are as follows:
@@ -97,7 +94,7 @@ const client = new PremAI({
 });
 
 // Or, configure per-request:
-await client.chat.completions({ messages: [{ role: 'system' }], model: 'model' }, {
+await client.chat.models({
   maxRetries: 5,
 });
 ```
@@ -114,7 +111,7 @@ const client = new PremAI({
 });
 
 // Override per-request:
-await client.chat.completions({ messages: [{ role: 'system' }], model: 'model' }, {
+await client.chat.models({
   timeout: 5 * 1000,
 });
 ```
@@ -137,17 +134,13 @@ Unlike `.asResponse()` this method consumes the body, returning once it is parse
 ```ts
 const client = new PremAI();
 
-const response = await client.chat
-  .completions({ messages: [{ role: 'system' }], model: 'model' })
-  .asResponse();
+const response = await client.chat.models().asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: response, response: raw } = await client.chat
-  .completions({ messages: [{ role: 'system' }], model: 'model' })
-  .withResponse();
+const { data: response, response: raw } = await client.chat.models().withResponse();
 console.log(raw.headers.get('X-My-Header'));
-console.log(response.id);
+console.log(response.data);
 ```
 
 ### Logging
@@ -227,7 +220,7 @@ parameter. This library doesn't validate at runtime that the request matches the
 send will be sent as-is.
 
 ```ts
-client.chat.completions({
+client.chat.models({
   // ...
   // @ts-expect-error baz is not yet public
   baz: 'undocumented option',
