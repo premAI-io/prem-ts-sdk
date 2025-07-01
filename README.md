@@ -24,9 +24,9 @@ const client = new PremAI({
   apiKey: process.env['PREMAI_API_KEY'], // This is the default and can be omitted
 });
 
-const response = await client.chat.models();
+const models = await client.models.list();
 
-console.log(response.data);
+console.log(models.data);
 ```
 
 ### Request & Response types
@@ -41,7 +41,7 @@ const client = new PremAI({
   apiKey: process.env['PREMAI_API_KEY'], // This is the default and can be omitted
 });
 
-const response: PremAI.ChatModelsResponse = await client.chat.models();
+const models: PremAI.ModelListResponse = await client.models.list();
 ```
 
 Documentation for each method, request param, and response field are available in docstrings and will appear on hover in most modern editors.
@@ -54,7 +54,7 @@ a subclass of `APIError` will be thrown:
 
 <!-- prettier-ignore -->
 ```ts
-const response = await client.chat.models().catch(async (err) => {
+const models = await client.models.list().catch(async (err) => {
   if (err instanceof PremAI.APIError) {
     console.log(err.status); // 400
     console.log(err.name); // BadRequestError
@@ -94,7 +94,7 @@ const client = new PremAI({
 });
 
 // Or, configure per-request:
-await client.chat.models({
+await client.models.list({
   maxRetries: 5,
 });
 ```
@@ -111,7 +111,7 @@ const client = new PremAI({
 });
 
 // Override per-request:
-await client.chat.models({
+await client.models.list({
   timeout: 5 * 1000,
 });
 ```
@@ -134,13 +134,13 @@ Unlike `.asResponse()` this method consumes the body, returning once it is parse
 ```ts
 const client = new PremAI();
 
-const response = await client.chat.models().asResponse();
+const response = await client.models.list().asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: response, response: raw } = await client.chat.models().withResponse();
+const { data: models, response: raw } = await client.models.list().withResponse();
 console.log(raw.headers.get('X-My-Header'));
-console.log(response.data);
+console.log(models.data);
 ```
 
 ### Logging
@@ -220,7 +220,7 @@ parameter. This library doesn't validate at runtime that the request matches the
 send will be sent as-is.
 
 ```ts
-client.chat.models({
+client.models.list({
   // ...
   // @ts-expect-error baz is not yet public
   baz: 'undocumented option',
