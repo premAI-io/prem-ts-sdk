@@ -1,5 +1,32 @@
 # Changelog
 
+## 0.6.0 (2025-07-01)
+
+Full Changelog: [v0.5.1...v0.6.0](https://github.com/premAI-io/prem-ts-sdk/compare/v0.5.1...v0.6.0)
+
+### Features
+
+* **api:** api update ([03335d0](https://github.com/premAI-io/prem-ts-sdk/commit/03335d0915abada0c219cfda7657665e5407fa04))
+
+
+### Bug Fixes
+
+* **ci:** release-doctor — report correct token name ([8bdf116](https://github.com/premAI-io/prem-ts-sdk/commit/8bdf1168aae9c62a72e08e441c58378253fd8d84))
+* **client:** explicitly copy fetch in withOptions ([1de9636](https://github.com/premAI-io/prem-ts-sdk/commit/1de9636ed5e287074861a34d20598c460ac382f5))
+* **client:** get fetchOptions type more reliably ([debf25c](https://github.com/premAI-io/prem-ts-sdk/commit/debf25cb748c60e2e88038bf0a237d337368c6b0))
+
+
+### Chores
+
+* **ci:** only run for pushes and fork pull requests ([c3ac606](https://github.com/premAI-io/prem-ts-sdk/commit/c3ac6063b02ad98feba4cecd09f0299c0571df95))
+* **client:** improve path param validation ([8da9099](https://github.com/premAI-io/prem-ts-sdk/commit/8da90998bc320b4f45f5f794ec62d87aad44a162))
+* **readme:** use better example snippet for undocumented params ([3a5b666](https://github.com/premAI-io/prem-ts-sdk/commit/3a5b666f0f7787954cf67a45050acc09649fde91))
+
+
+### Refactors
+
+* **types:** replace Record with mapped types ([7891f0c](https://github.com/premAI-io/prem-ts-sdk/commit/7891f0ce406589f234960b5c8e5eac4b59954a3d))
+
 ## 0.5.1 (2025-06-18)
 
 Full Changelog: [v0.5.0...v0.5.1](https://github.com/premAI-io/prem-ts-sdk/compare/v0.5.0...v0.5.1)
