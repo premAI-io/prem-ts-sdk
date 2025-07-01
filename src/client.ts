@@ -16,13 +16,7 @@ import * as Errors from './core/error';
 import * as Uploads from './core/uploads';
 import * as API from './resources/index';
 import { APIPromise } from './core/api-promise';
-import {
-  Chat,
-  ChatCompletionsParams,
-  ChatCompletionsResponse,
-  ChatListModelsInternalResponse,
-  ChatListModelsResponse,
-} from './resources/chat';
+import { Chat, ChatCompletionsParams, ChatCompletionsResponse } from './resources/chat';
 import { type Fetch } from './internal/builtin-types';
 import { HeadersLike, NullableHeaders, buildHeaders } from './internal/headers';
 import { FinalRequestOptions, RequestOptions } from './internal/request-options';
@@ -724,8 +718,6 @@ export declare namespace PremAI {
   export {
     Chat as Chat,
     type ChatCompletionsResponse as ChatCompletionsResponse,
-    type ChatListModelsResponse as ChatListModelsResponse,
-    type ChatListModelsInternalResponse as ChatListModelsInternalResponse,
     type ChatCompletionsParams as ChatCompletionsParams,
   };
 }
