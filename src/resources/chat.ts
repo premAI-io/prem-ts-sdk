@@ -110,6 +110,10 @@ export interface ChatCompletionsParams {
 
   temperature?: number | null;
 
+  tool_choice?: 'none' | 'auto' | unknown;
+
+  tools?: Array<unknown>;
+
   top_p?: number | null;
 }
 
@@ -121,7 +125,7 @@ export namespace ChatCompletionsParams {
   }
 
   export interface ResponseFormat {
-    json_schema: Record<string, unknown>;
+    json_schema: { [key: string]: unknown };
 
     type: 'text' | 'json_schema';
   }
