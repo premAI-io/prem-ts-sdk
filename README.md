@@ -6,6 +6,8 @@ This library provides convenient access to the Prem AI REST API from server-side
 
 The full API of this library can be found in [api.md](api.md).
 
+It is generated with [Stainless](https://www.stainless.com/).
+
 ## Installation
 
 ```sh
@@ -24,9 +26,9 @@ const client = new PremAI({
   apiKey: process.env['PREMAI_API_KEY'], // This is the default and can be omitted
 });
 
-const models = await client.models.list();
+const response = await client.chat.completions({ messages: [{ role: 'system' }], model: 'REPLACE_ME' });
 
-console.log(models.data);
+console.log(response.id);
 ```
 
 ### Request & Response types
@@ -41,7 +43,8 @@ const client = new PremAI({
   apiKey: process.env['PREMAI_API_KEY'], // This is the default and can be omitted
 });
 
-const models: PremAI.ModelListResponse = await client.models.list();
+const params: PremAI.ChatCompletionsParams = { messages: [{ role: 'system' }], model: 'REPLACE_ME' };
+const response: PremAI.ChatCompletionsResponse = await client.chat.completions(params);
 ```
 
 Documentation for each method, request param, and response field are available in docstrings and will appear on hover in most modern editors.
@@ -54,15 +57,17 @@ a subclass of `APIError` will be thrown:
 
 <!-- prettier-ignore -->
 ```ts
-const models = await client.models.list().catch(async (err) => {
-  if (err instanceof PremAI.APIError) {
-    console.log(err.status); // 400
-    console.log(err.name); // BadRequestError
-    console.log(err.headers); // {server: 'nginx', ...}
-  } else {
-    throw err;
-  }
-});
+const response = await client.chat
+  .completions({ messages: [{ role: 'system' }], model: 'REPLACE_ME' })
+  .catch(async (err) => {
+    if (err instanceof PremAI.APIError) {
+      console.log(err.status); // 400
+      console.log(err.name); // BadRequestError
+      console.log(err.headers); // {server: 'nginx', ...}
+    } else {
+      throw err;
+    }
+  });
 ```
 
 Error codes are as follows:
@@ -94,7 +99,7 @@ const client = new PremAI({
 });
 
 // Or, configure per-request:
-await client.models.list({
+await client.chat.completions({ messages: [{ role: 'system' }], model: 'REPLACE_ME' }, {
   maxRetries: 5,
 });
 ```
@@ -111,7 +116,7 @@ const client = new PremAI({
 });
 
 // Override per-request:
-await client.models.list({
+await client.chat.completions({ messages: [{ role: 'system' }], model: 'REPLACE_ME' }, {
   timeout: 5 * 1000,
 });
 ```
@@ -134,13 +139,17 @@ Unlike `.asResponse()` this method consumes the body, returning once it is parse
 ```ts
 const client = new PremAI();
 
-const response = await client.models.list().asResponse();
+const response = await client.chat
+  .completions({ messages: [{ role: 'system' }], model: 'REPLACE_ME' })
+  .asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: models, response: raw } = await client.models.list().withResponse();
+const { data: response, response: raw } = await client.chat
+  .completions({ messages: [{ role: 'system' }], model: 'REPLACE_ME' })
+  .withResponse();
 console.log(raw.headers.get('X-My-Header'));
-console.log(models.data);
+console.log(response.id);
 ```
 
 ### Logging
@@ -220,7 +229,7 @@ parameter. This library doesn't validate at runtime that the request matches the
 send will be sent as-is.
 
 ```ts
-client.models.list({
+client.chat.completions({
   // ...
   // @ts-expect-error baz is not yet public
   baz: 'undocumented option',
