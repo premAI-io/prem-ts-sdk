@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.9.1 (2025-07-15)
+
+Full Changelog: [v0.9.0...v0.9.1](https://github.com/premAI-io/prem-ts-sdk/compare/v0.9.0...v0.9.1)
+
+### Chores
+
+* **internal:** codegen related update ([f38bb42](https://github.com/premAI-io/prem-ts-sdk/commit/f38bb422468bb6c20d7dc1e46f04262b7ea7deaa))
+* make some internal functions async ([d1dc9a4](https://github.com/premAI-io/prem-ts-sdk/commit/d1dc9a4303b72f2604a4d8151d2006a2c31e995b))
+
 ## 0.9.0 (2025-07-14)
 
 Full Changelog: [v0.8.2...v0.9.0](https://github.com/premAI-io/prem-ts-sdk/compare/v0.8.2...v0.9.0)
