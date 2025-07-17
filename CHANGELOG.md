@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.9.2 (2025-07-17)
+
+Full Changelog: [v0.9.1...v0.9.2](https://github.com/premAI-io/prem-ts-sdk/compare/v0.9.1...v0.9.2)
+
+### Chores
+
+* **ts:** reorder package.json imports ([a432020](https://github.com/premAI-io/prem-ts-sdk/commit/a432020861500a7bfe1d81f998ab2579c5d6db69))
+
 ## 0.9.1 (2025-07-15)
 
 Full Changelog: [v0.9.0...v0.9.1](https://github.com/premAI-io/prem-ts-sdk/compare/v0.9.0...v0.9.1)
