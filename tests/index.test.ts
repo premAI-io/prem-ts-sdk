@@ -1,10 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIPromise } from '@premai/premai/core/api-promise';
+import { APIPromise } from 'premai/core/api-promise';
 
 import util from 'node:util';
-import PremAI from '@premai/premai';
-import { APIUserAbortError } from '@premai/premai';
+import PremAI from 'premai';
+import { APIUserAbortError } from 'premai';
 const defaultFetch = fetch;
 
 describe('instantiate client', () => {
