@@ -1,5 +1,5 @@
-import { multipartFormRequestOptions, createForm } from '@premai/premai/internal/uploads';
-import { toFile } from '@premai/premai/core/uploads';
+import { multipartFormRequestOptions, createForm } from 'premai/internal/uploads';
+import { toFile } from 'premai/core/uploads';
 
 describe('form data validation', () => {
   test('valid values do not error', async () => {

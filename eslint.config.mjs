@@ -25,7 +25,7 @@ export default tseslint.config(
         {
           patterns: [
             {
-              regex: '^@premai/premai(/.*)?',
+              regex: '^premai(/.*)?',
               message: 'Use a relative import, not a package import.',
             },
           ],
