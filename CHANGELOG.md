@@ -1,18 +1,5 @@
 # Changelog
 
-## 0.10.0 (2025-07-30)
-
-Full Changelog: [v0.9.3...v0.10.0](https://github.com/premAI-io/prem-ts-sdk/compare/v0.9.3...v0.10.0)
-
-### Features
-
-* **api:** api update ([40e90c5](https://github.com/premAI-io/prem-ts-sdk/commit/40e90c50662e5e76d2008d456113dcb6a4620b2d))
-
-
-### Chores
-
-* **internal:** remove redundant imports config ([dcbd208](https://github.com/premAI-io/prem-ts-sdk/commit/dcbd20875eea906db363d09c5d4f61220091ced5))
-
 ## 0.9.3 (2025-07-26)
 
 Full Changelog: [v0.9.2...v0.9.3](https://github.com/premAI-io/prem-ts-sdk/compare/v0.9.2...v0.9.3)
