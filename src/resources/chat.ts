@@ -85,9 +85,9 @@ export interface ChatCompletionsParams {
 
 export namespace ChatCompletionsParams {
   export interface Message {
-    role: 'system' | 'user' | 'assistant';
+    content: string;
 
-    content?: null;
+    role: 'system' | 'user' | 'assistant';
   }
 
   export interface ResponseFormat {
