@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.10.3 (2025-08-07)
+
+Full Changelog: [v0.10.1...v0.10.3](https://github.com/premAI-io/prem-ts-sdk/compare/v0.10.1...v0.10.3)
+
+### Chores
+
+* **internal:** move publish config ([3658299](https://github.com/premAI-io/prem-ts-sdk/commit/365829903fbeca416a2c72aaadf07c4d8cf778ad))
+
 ## 0.10.1 (2025-07-30)
 
 Full Changelog: [v0.10.0...v0.10.1](https://github.com/premAI-io/prem-ts-sdk/compare/v0.10.0...v0.10.1)
