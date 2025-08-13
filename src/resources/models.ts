@@ -16,12 +16,8 @@ export class Models extends APIResource {
   /**
    * Check if a model is running for inference. Use query param to support IDs with /
    */
-  checkStatus(query: ModelCheckStatusParams, options?: RequestOptions): APIPromise<void> {
-    return this._client.get('/api/v1/models/running', {
-      query,
-      ...options,
-      headers: buildHeaders([{ Accept: '*/*' }, options?.headers]),
-    });
+  checkStatus(query: ModelCheckStatusParams, options?: RequestOptions): APIPromise<ModelCheckStatusResponse> {
+    return this._client.get('/api/v1/models/running', { query, ...options });
   }
 
   /**
@@ -66,8 +62,12 @@ export namespace ModelListResponse {
   }
 }
 
+export interface ModelCheckStatusResponse {
+  status: boolean;
+}
+
 export interface ModelCheckStatusParams {
-  modelId: string;
+  model: string;
 }
 
 export interface ModelLoadParams {
@@ -81,6 +81,7 @@ export interface ModelUnloadParams {
 export declare namespace Models {
   export {
     type ModelListResponse as ModelListResponse,
+    type ModelCheckStatusResponse as ModelCheckStatusResponse,
     type ModelCheckStatusParams as ModelCheckStatusParams,
     type ModelLoadParams as ModelLoadParams,
     type ModelUnloadParams as ModelUnloadParams,

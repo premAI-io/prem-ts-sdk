@@ -19,6 +19,7 @@ import { APIPromise } from './core/api-promise';
 import { Chat, ChatCompletionsParams, ChatCompletionsResponse } from './resources/chat';
 import {
   ModelCheckStatusParams,
+  ModelCheckStatusResponse,
   ModelListResponse,
   ModelLoadParams,
   ModelUnloadParams,
@@ -738,6 +739,7 @@ export declare namespace PremAI {
   export {
     Models as Models,
     type ModelListResponse as ModelListResponse,
+    type ModelCheckStatusResponse as ModelCheckStatusResponse,
     type ModelCheckStatusParams as ModelCheckStatusParams,
     type ModelLoadParams as ModelLoadParams,
     type ModelUnloadParams as ModelUnloadParams,
