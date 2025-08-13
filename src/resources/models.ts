@@ -2,6 +2,7 @@
 
 import { APIResource } from '../core/resource';
 import { APIPromise } from '../core/api-promise';
+import { buildHeaders } from '../internal/headers';
 import { RequestOptions } from '../internal/request-options';
 
 export class Models extends APIResource {
@@ -10,6 +11,40 @@ export class Models extends APIResource {
    */
   list(options?: RequestOptions): APIPromise<ModelListResponse> {
     return this._client.get('/api/v1/models', options);
+  }
+
+  /**
+   * Check if a model is running for inference. Use query param to support IDs with /
+   */
+  checkStatus(query: ModelCheckStatusParams, options?: RequestOptions): APIPromise<void> {
+    return this._client.get('/api/v1/models/running', {
+      query,
+      ...options,
+      headers: buildHeaders([{ Accept: '*/*' }, options?.headers]),
+    });
+  }
+
+  /**
+   * Load up a model for inference. This endpoint requests a model to be loaded into
+   * memory for faster inference.
+   */
+  load(body: ModelLoadParams, options?: RequestOptions): APIPromise<void> {
+    return this._client.post('/api/v1/models/up', {
+      body,
+      ...options,
+      headers: buildHeaders([{ Accept: '*/*' }, options?.headers]),
+    });
+  }
+
+  /**
+   * Load down a model for inference.
+   */
+  unload(body: ModelUnloadParams, options?: RequestOptions): APIPromise<void> {
+    return this._client.post('/api/v1/models/down', {
+      body,
+      ...options,
+      headers: buildHeaders([{ Accept: '*/*' }, options?.headers]),
+    });
   }
 }
 
@@ -31,6 +66,23 @@ export namespace ModelListResponse {
   }
 }
 
+export interface ModelCheckStatusParams {
+  modelId: string;
+}
+
+export interface ModelLoadParams {
+  model: string;
+}
+
+export interface ModelUnloadParams {
+  model: string;
+}
+
 export declare namespace Models {
-  export { type ModelListResponse as ModelListResponse };
+  export {
+    type ModelListResponse as ModelListResponse,
+    type ModelCheckStatusParams as ModelCheckStatusParams,
+    type ModelLoadParams as ModelLoadParams,
+    type ModelUnloadParams as ModelUnloadParams,
+  };
 }
