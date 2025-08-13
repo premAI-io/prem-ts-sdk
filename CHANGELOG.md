@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.10.4 (2025-08-13)
+
+Full Changelog: [v0.10.3...v0.10.4](https://github.com/premAI-io/prem-ts-sdk/compare/v0.10.3...v0.10.4)
+
+### Chores
+
+* **internal:** codegen related update ([06d391e](https://github.com/premAI-io/prem-ts-sdk/commit/06d391edf1ce609064eb88115a679ee5a5378723))
+* **internal:** update comment in script ([a62e6d5](https://github.com/premAI-io/prem-ts-sdk/commit/a62e6d59c76776051c933451dab86fcd8af1a276))
+* update @stainless-api/prism-cli to v5.15.0 ([6b81a6b](https://github.com/premAI-io/prem-ts-sdk/commit/6b81a6b9f2e684d3eb82fd2aea30c802d51acbf3))
+
 ## 0.10.3 (2025-08-07)
 
 Full Changelog: [v0.10.1...v0.10.3](https://github.com/premAI-io/prem-ts-sdk/compare/v0.10.1...v0.10.3)
