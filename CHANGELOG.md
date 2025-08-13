@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.11.0 (2025-08-13)
+
+Full Changelog: [v0.10.4...v0.11.0](https://github.com/premAI-io/prem-ts-sdk/compare/v0.10.4...v0.11.0)
+
+### Features
+
+* **api:** api update ([6f8e274](https://github.com/premAI-io/prem-ts-sdk/commit/6f8e274f3e9ca92618e52dee3d6185a1083d0edd))
+
 ## 0.10.4 (2025-08-13)
 
 Full Changelog: [v0.10.3...v0.10.4](https://github.com/premAI-io/prem-ts-sdk/compare/v0.10.3...v0.10.4)
