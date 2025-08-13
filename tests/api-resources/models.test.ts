@@ -22,7 +22,7 @@ describe('resource models', () => {
 
   // Prism tests are disabled
   test.skip('checkStatus: only required params', async () => {
-    const responsePromise = client.models.checkStatus({ modelId: 'modelId' });
+    const responsePromise = client.models.checkStatus({ model: 'model' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -34,7 +34,7 @@ describe('resource models', () => {
 
   // Prism tests are disabled
   test.skip('checkStatus: required and optional params', async () => {
-    const response = await client.models.checkStatus({ modelId: 'modelId' });
+    const response = await client.models.checkStatus({ model: 'model' });
   });
 
   // Prism tests are disabled

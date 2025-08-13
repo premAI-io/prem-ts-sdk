@@ -4,6 +4,7 @@ export { Chat, type ChatCompletionsResponse, type ChatCompletionsParams } from '
 export {
   Models,
   type ModelListResponse,
+  type ModelCheckStatusResponse,
   type ModelCheckStatusParams,
   type ModelLoadParams,
   type ModelUnloadParams,
