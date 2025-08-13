@@ -8,7 +8,7 @@ const client = new PremAI({
 });
 
 describe('resource chat', () => {
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('completions: only required params', async () => {
     const responsePromise = client.chat.completions({
       messages: [{ content: 'content', role: 'system' }],
@@ -23,7 +23,7 @@ describe('resource chat', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // skipped: tests are disabled for the time being
+  // Prism tests are disabled
   test.skip('completions: required and optional params', async () => {
     const response = await client.chat.completions({
       messages: [{ content: 'content', role: 'system' }],
