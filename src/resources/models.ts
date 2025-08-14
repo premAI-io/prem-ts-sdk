@@ -45,24 +45,52 @@ export class Models extends APIResource {
 }
 
 export interface ModelListResponse {
+  /**
+   * An array containing the available models. Each element is a complete model
+   * object with all its properties.
+   */
   data: Array<ModelListResponse.Data>;
 
+  /**
+   * The type of object returned, always "list" for model listing responses. Helps
+   * identify this as a collection of models.
+   */
   object: 'list';
 }
 
 export namespace ModelListResponse {
   export interface Data {
+    /**
+     * The unique identifier of the model. This can be used to specify the model in API
+     * requests. For fine-tuned models, this may include a user-specific prefix.
+     */
     id: string;
 
+    /**
+     * Unix timestamp (in seconds) when this model was created or made available. For
+     * fine-tuned models, this represents when the fine-tuning was completed.
+     */
     created: number;
 
+    /**
+     * The type of object represented, which is always "model" for model objects. This
+     * helps distinguish model objects from other types of responses.
+     */
     object: 'model';
 
+    /**
+     * Identifies the owner or provider of the model. Can be "premai" for base models,
+     * a user ID for fine-tuned models, or other providers like "openai" or
+     * "anthropic".
+     */
     owned_by: string;
   }
 }
 
 export interface ModelCheckStatusResponse {
+  /**
+   * Whether the model is running.
+   */
   status: boolean;
 }
 
@@ -71,10 +99,16 @@ export interface ModelCheckStatusParams {
 }
 
 export interface ModelLoadParams {
+  /**
+   * The ID or alias of the model to load up.
+   */
   model: string;
 }
 
 export interface ModelUnloadParams {
+  /**
+   * The ID or alias of the model to load down.
+   */
   model: string;
 }
 
