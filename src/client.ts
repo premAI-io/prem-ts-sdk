@@ -725,8 +725,10 @@ export class PremAI {
   chat: API.Chat = new API.Chat(this);
   models: API.Models = new API.Models(this);
 }
+
 PremAI.Chat = Chat;
 PremAI.Models = Models;
+
 export declare namespace PremAI {
   export type RequestOptions = Opts.RequestOptions;
 
