@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.12.1 (2025-08-16)
+
+Full Changelog: [v0.12.0...v0.12.1](https://github.com/premAI-io/prem-ts-sdk/compare/v0.12.0...v0.12.1)
+
+### Chores
+
+* **deps:** update dependency @types/node to v20.17.58 ([531fbe4](https://github.com/premAI-io/prem-ts-sdk/commit/531fbe488f98ecd5e5d237d12ef952c6dd74a35b))
+* **internal:** formatting change ([c19c759](https://github.com/premAI-io/prem-ts-sdk/commit/c19c759106c600a96e013d4622481f33a6cc7da7))
+
 ## 0.12.0 (2025-08-14)
 
 Full Changelog: [v0.11.1...v0.12.0](https://github.com/premAI-io/prem-ts-sdk/compare/v0.11.1...v0.12.0)
