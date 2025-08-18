@@ -26,10 +26,7 @@ const client = new PremAI({
   apiKey: process.env['PREMAI_API_KEY'], // This is the default and can be omitted
 });
 
-const response = await client.chat.completions({
-  messages: [{ content: 'content', role: 'system' }],
-  model: 'REPLACE_ME',
-});
+const response = await client.chat.completions({ messages: [{ role: 'system' }], model: 'REPLACE_ME' });
 
 console.log(response.id);
 ```
@@ -46,10 +43,7 @@ const client = new PremAI({
   apiKey: process.env['PREMAI_API_KEY'], // This is the default and can be omitted
 });
 
-const params: PremAI.ChatCompletionsParams = {
-  messages: [{ content: 'content', role: 'system' }],
-  model: 'REPLACE_ME',
-};
+const params: PremAI.ChatCompletionsParams = { messages: [{ role: 'system' }], model: 'REPLACE_ME' };
 const response: PremAI.ChatCompletionsResponse = await client.chat.completions(params);
 ```
 
@@ -64,7 +58,7 @@ a subclass of `APIError` will be thrown:
 <!-- prettier-ignore -->
 ```ts
 const response = await client.chat
-  .completions({ messages: [{ content: 'content', role: 'system' }], model: 'REPLACE_ME' })
+  .completions({ messages: [{ role: 'system' }], model: 'REPLACE_ME' })
   .catch(async (err) => {
     if (err instanceof PremAI.APIError) {
       console.log(err.status); // 400
@@ -105,7 +99,7 @@ const client = new PremAI({
 });
 
 // Or, configure per-request:
-await client.chat.completions({ messages: [{ content: 'content', role: 'system' }], model: 'REPLACE_ME' }, {
+await client.chat.completions({ messages: [{ role: 'system' }], model: 'REPLACE_ME' }, {
   maxRetries: 5,
 });
 ```
@@ -122,7 +116,7 @@ const client = new PremAI({
 });
 
 // Override per-request:
-await client.chat.completions({ messages: [{ content: 'content', role: 'system' }], model: 'REPLACE_ME' }, {
+await client.chat.completions({ messages: [{ role: 'system' }], model: 'REPLACE_ME' }, {
   timeout: 5 * 1000,
 });
 ```
@@ -146,13 +140,13 @@ Unlike `.asResponse()` this method consumes the body, returning once it is parse
 const client = new PremAI();
 
 const response = await client.chat
-  .completions({ messages: [{ content: 'content', role: 'system' }], model: 'REPLACE_ME' })
+  .completions({ messages: [{ role: 'system' }], model: 'REPLACE_ME' })
   .asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
 const { data: response, response: raw } = await client.chat
-  .completions({ messages: [{ content: 'content', role: 'system' }], model: 'REPLACE_ME' })
+  .completions({ messages: [{ role: 'system' }], model: 'REPLACE_ME' })
   .withResponse();
 console.log(raw.headers.get('X-My-Header'));
 console.log(response.id);
