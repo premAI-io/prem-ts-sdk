@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.13.0 (2025-08-20)
+
+Full Changelog: [v0.12.1...v0.13.0](https://github.com/premAI-io/prem-ts-sdk/compare/v0.12.1...v0.13.0)
+
+### Features
+
+* **api:** api update ([2f40fdd](https://github.com/premAI-io/prem-ts-sdk/commit/2f40fddab98bb11388332ec30f30cf76036d0a1d))
+* **mcp:** add code execution tool ([2cf06af](https://github.com/premAI-io/prem-ts-sdk/commit/2cf06af87136c769e90cff941782d443021d60f5))
+
 ## 0.12.1 (2025-08-16)
 
 Full Changelog: [v0.12.0...v0.12.1](https://github.com/premAI-io/prem-ts-sdk/compare/v0.12.0...v0.12.1)

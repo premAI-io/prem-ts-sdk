@@ -183,18 +183,64 @@ export interface ChatCompletionsParams {
 export namespace ChatCompletionsParams {
   export interface Message {
     /**
-     * The actual text content of the message. Note that this can be null in certain
-     * cases, such as when the message contains tool calls or when specific roles don't
-     * require content.
-     */
-    content: string;
-
-    /**
      * The role of the message sender. "system" is for system-level instructions,
      * "user" represents the end user, and "assistant" represents the AI model's
      * responses.
      */
-    role: 'system' | 'user' | 'assistant';
+    role: 'system' | 'user' | 'assistant' | 'tool';
+
+    /**
+     * The actual text content of the message. Note that this can be null in certain
+     * cases, such as when the message contains tool calls or when specific roles don't
+     * require content.
+     */
+    content?: string | null;
+
+    /**
+     * The name of the function to call, if any.
+     */
+    name?: string;
+
+    /**
+     * The ID of the tool call that this message is a response to (only for tool role
+     * messages)
+     */
+    tool_call_id?: string;
+
+    /**
+     * Tool calls to be made by the assistant
+     */
+    tool_calls?: Array<Message.ToolCall>;
+  }
+
+  export namespace Message {
+    export interface ToolCall {
+      /**
+       * A unique identifier for this tool call
+       */
+      id: string;
+
+      function: ToolCall.Function;
+
+      /**
+       * The type of tool call
+       */
+      type: 'function';
+    }
+
+    export namespace ToolCall {
+      export interface Function {
+        /**
+         * The arguments to pass to the function as a JSON string
+         */
+        arguments: string;
+
+        /**
+         * The name of the function to call
+         */
+        name: string;
+      }
+    }
   }
 
   /**

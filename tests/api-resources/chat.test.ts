@@ -10,10 +10,7 @@ const client = new PremAI({
 describe('resource chat', () => {
   // Prism tests are disabled
   test.skip('completions: only required params', async () => {
-    const responsePromise = client.chat.completions({
-      messages: [{ content: 'content', role: 'system' }],
-      model: 'model',
-    });
+    const responsePromise = client.chat.completions({ messages: [{ role: 'system' }], model: 'model' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -26,7 +23,15 @@ describe('resource chat', () => {
   // Prism tests are disabled
   test.skip('completions: required and optional params', async () => {
     const response = await client.chat.completions({
-      messages: [{ content: 'content', role: 'system' }],
+      messages: [
+        {
+          role: 'system',
+          content: 'content',
+          name: 'name',
+          tool_call_id: 'tool_call_id',
+          tool_calls: [{ id: 'id', function: { arguments: 'arguments', name: 'name' }, type: 'function' }],
+        },
+      ],
       model: 'model',
       frequency_penalty: -2,
       max_completion_tokens: 1,
