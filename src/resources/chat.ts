@@ -70,7 +70,31 @@ export namespace ChatCompletionsResponse {
     export interface Message {
       content: string | null;
 
-      role: 'assistant';
+      role: 'assistant' | 'tool';
+
+      name?: string;
+
+      tool_call_id?: string;
+
+      tool_calls?: Array<Message.ToolCall>;
+    }
+
+    export namespace Message {
+      export interface ToolCall {
+        id: string;
+
+        function: ToolCall.Function;
+
+        type: 'function';
+      }
+
+      export namespace ToolCall {
+        export interface Function {
+          arguments: string;
+
+          name: string;
+        }
+      }
     }
   }
 
