@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.14.1 (2025-08-22)
+
+Full Changelog: [v0.14.0...v0.14.1](https://github.com/premAI-io/prem-ts-sdk/compare/v0.14.0...v0.14.1)
+
+### Chores
+
+* add package to package.json ([122645f](https://github.com/premAI-io/prem-ts-sdk/commit/122645fff89c108a3e76ecb0f9521d95fe98bffe))
+* **client:** qualify global Blob ([c9ab775](https://github.com/premAI-io/prem-ts-sdk/commit/c9ab7754ede913123ebf9293a0ac21e85966935c))
+
 ## 0.14.0 (2025-08-21)
 
 Full Changelog: [v0.13.0...v0.14.0](https://github.com/premAI-io/prem-ts-sdk/compare/v0.13.0...v0.14.0)
