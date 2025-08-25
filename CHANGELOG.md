@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.14.2 (2025-08-23)
+
+Full Changelog: [v0.14.1...v0.14.2](https://github.com/premAI-io/prem-ts-sdk/compare/v0.14.1...v0.14.2)
+
+### Chores
+
+* update CI script ([61dd51f](https://github.com/premAI-io/prem-ts-sdk/commit/61dd51f23f357a5807304347d2f72fc17f7428a3))
+
 ## 0.14.1 (2025-08-22)
 
 Full Changelog: [v0.14.0...v0.14.1](https://github.com/premAI-io/prem-ts-sdk/compare/v0.14.0...v0.14.1)
