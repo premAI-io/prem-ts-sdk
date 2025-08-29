@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.14.3 (2025-08-29)
+
+Full Changelog: [v0.14.2...v0.14.3](https://github.com/premAI-io/prem-ts-sdk/compare/v0.14.2...v0.14.3)
+
+### Chores
+
+* **internal:** update global Error reference ([9e1a4c2](https://github.com/premAI-io/prem-ts-sdk/commit/9e1a4c28cddaa6b427dba368e3250ce6f006097e))
+
 ## 0.14.2 (2025-08-23)
 
 Full Changelog: [v0.14.1...v0.14.2](https://github.com/premAI-io/prem-ts-sdk/compare/v0.14.1...v0.14.2)
