@@ -5,6 +5,8 @@ export {
   Models,
   type ModelListResponse,
   type ModelCheckStatusResponse,
+  type ModelLoadResponse,
+  type ModelUnloadResponse,
   type ModelCheckStatusParams,
   type ModelLoadParams,
   type ModelUnloadParams,

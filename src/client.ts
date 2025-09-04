@@ -22,7 +22,9 @@ import {
   ModelCheckStatusResponse,
   ModelListResponse,
   ModelLoadParams,
+  ModelLoadResponse,
   ModelUnloadParams,
+  ModelUnloadResponse,
   Models,
 } from './resources/models';
 import { type Fetch } from './internal/builtin-types';
@@ -742,6 +744,8 @@ export declare namespace PremAI {
     Models as Models,
     type ModelListResponse as ModelListResponse,
     type ModelCheckStatusResponse as ModelCheckStatusResponse,
+    type ModelLoadResponse as ModelLoadResponse,
+    type ModelUnloadResponse as ModelUnloadResponse,
     type ModelCheckStatusParams as ModelCheckStatusParams,
     type ModelLoadParams as ModelLoadParams,
     type ModelUnloadParams as ModelUnloadParams,
