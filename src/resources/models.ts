@@ -2,7 +2,6 @@
 
 import { APIResource } from '../core/resource';
 import { APIPromise } from '../core/api-promise';
-import { buildHeaders } from '../internal/headers';
 import { RequestOptions } from '../internal/request-options';
 
 export class Models extends APIResource {
@@ -24,23 +23,15 @@ export class Models extends APIResource {
    * Load up a model for inference. This endpoint requests a model to be loaded into
    * memory for faster inference.
    */
-  load(body: ModelLoadParams, options?: RequestOptions): APIPromise<void> {
-    return this._client.post('/api/v1/models/up', {
-      body,
-      ...options,
-      headers: buildHeaders([{ Accept: '*/*' }, options?.headers]),
-    });
+  load(body: ModelLoadParams, options?: RequestOptions): APIPromise<ModelLoadResponse> {
+    return this._client.post('/api/v1/models/up', { body, ...options });
   }
 
   /**
    * Load down a model for inference.
    */
-  unload(body: ModelUnloadParams, options?: RequestOptions): APIPromise<void> {
-    return this._client.post('/api/v1/models/down', {
-      body,
-      ...options,
-      headers: buildHeaders([{ Accept: '*/*' }, options?.headers]),
-    });
+  unload(body: ModelUnloadParams, options?: RequestOptions): APIPromise<ModelUnloadResponse> {
+    return this._client.post('/api/v1/models/down', { body, ...options });
   }
 }
 
@@ -94,21 +85,23 @@ export interface ModelCheckStatusResponse {
   status: boolean;
 }
 
+export interface ModelLoadResponse {
+  message: string;
+}
+
+export interface ModelUnloadResponse {
+  message: string;
+}
+
 export interface ModelCheckStatusParams {
   model: string;
 }
 
 export interface ModelLoadParams {
-  /**
-   * The ID or alias of the model to load up.
-   */
   model: string;
 }
 
 export interface ModelUnloadParams {
-  /**
-   * The ID or alias of the model to load down.
-   */
   model: string;
 }
 
@@ -116,6 +109,8 @@ export declare namespace Models {
   export {
     type ModelListResponse as ModelListResponse,
     type ModelCheckStatusResponse as ModelCheckStatusResponse,
+    type ModelLoadResponse as ModelLoadResponse,
+    type ModelUnloadResponse as ModelUnloadResponse,
     type ModelCheckStatusParams as ModelCheckStatusParams,
     type ModelLoadParams as ModelLoadParams,
     type ModelUnloadParams as ModelUnloadParams,
