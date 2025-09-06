@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.15.1 (2025-09-06)
+
+Full Changelog: [v0.15.0...v0.15.1](https://github.com/premAI-io/prem-ts-sdk/compare/v0.15.0...v0.15.1)
+
+### Chores
+
+* ci build action ([fd84c36](https://github.com/premAI-io/prem-ts-sdk/commit/fd84c3624973df47b222e1eb1a96400f39fe51a3))
+
 ## 0.15.0 (2025-09-04)
 
 Full Changelog: [v0.14.3...v0.15.0](https://github.com/premAI-io/prem-ts-sdk/compare/v0.14.3...v0.15.0)
