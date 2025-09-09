@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.15.2 (2025-09-09)
+
+Full Changelog: [v0.15.1...v0.15.2](https://github.com/premAI-io/prem-ts-sdk/compare/v0.15.1...v0.15.2)
+
+### Bug Fixes
+
+* coerce nullable values to undefined ([75437c5](https://github.com/premAI-io/prem-ts-sdk/commit/75437c5552ed4f75ff75e99c8099de3b31a60e33))
+
 ## 0.15.1 (2025-09-06)
 
 Full Changelog: [v0.15.0...v0.15.1](https://github.com/premAI-io/prem-ts-sdk/compare/v0.15.0...v0.15.1)
