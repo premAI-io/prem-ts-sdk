@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.15.3 (2025-09-20)
+
+Full Changelog: [v0.15.2...v0.15.3](https://github.com/premAI-io/prem-ts-sdk/compare/v0.15.2...v0.15.3)
+
+### Chores
+
+* do not install brew dependencies in ./scripts/bootstrap by default ([a6fcbb6](https://github.com/premAI-io/prem-ts-sdk/commit/a6fcbb62e2a51e1548b97c2d9df9008f05c6d6b8))
+
 ## 0.15.2 (2025-09-09)
 
 Full Changelog: [v0.15.1...v0.15.2](https://github.com/premAI-io/prem-ts-sdk/compare/v0.15.1...v0.15.2)
