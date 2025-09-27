@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.15.4 (2025-09-27)
+
+Full Changelog: [v0.15.3...v0.15.4](https://github.com/premAI-io/prem-ts-sdk/compare/v0.15.3...v0.15.4)
+
+### Performance Improvements
+
+* faster formatting ([8eaaebe](https://github.com/premAI-io/prem-ts-sdk/commit/8eaaebe49ab02c463cd16877b680b8ed45fbdc1b))
+
+
+### Chores
+
+* **internal:** codegen related update ([b77994e](https://github.com/premAI-io/prem-ts-sdk/commit/b77994eb08e69865bcfc257652c8adbfd8b5aae2))
+* **internal:** fix incremental formatting in some cases ([674a23a](https://github.com/premAI-io/prem-ts-sdk/commit/674a23a0c3fbc6554922f4aeab5acc5aba4ec0f0))
+* **internal:** ignore .eslintcache ([5db5372](https://github.com/premAI-io/prem-ts-sdk/commit/5db5372b88d6ec57f7957b4024da72d909e503ba))
+* **internal:** remove deprecated `compilerOptions.baseUrl` from tsconfig.json ([5f25a34](https://github.com/premAI-io/prem-ts-sdk/commit/5f25a3458d0c3d7e835facc1fdb280721cb00f0b))
+
 ## 0.15.3 (2025-09-20)
 
 Full Changelog: [v0.15.2...v0.15.3](https://github.com/premAI-io/prem-ts-sdk/compare/v0.15.2...v0.15.3)
