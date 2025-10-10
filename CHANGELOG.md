@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.15.5 (2025-10-07)
+
+Full Changelog: [v0.15.4...v0.15.5](https://github.com/premAI-io/prem-ts-sdk/compare/v0.15.4...v0.15.5)
+
+### Chores
+
+* **internal:** remove .eslintcache ([ee1ae3b](https://github.com/premAI-io/prem-ts-sdk/commit/ee1ae3bd9eacb2c4d0b5a7234832e11daf9a4051))
+* **internal:** use npm pack for build uploads ([82c1427](https://github.com/premAI-io/prem-ts-sdk/commit/82c142760633b54a547f4add6e9cf77425158351))
+* **jsdoc:** fix [@link](https://github.com/link) annotations to refer only to parts of the package‘s public interface ([fe69339](https://github.com/premAI-io/prem-ts-sdk/commit/fe69339bd4fbb4c386ad4a3beba5c6c7c1b76d1a))
+
 ## 0.15.4 (2025-09-27)
 
 Full Changelog: [v0.15.3...v0.15.4](https://github.com/premAI-io/prem-ts-sdk/compare/v0.15.3...v0.15.4)

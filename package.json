@@ -1,6 +1,6 @@
 {
   "name": "premai",
-  "version": "0.15.4",
+  "version": "0.15.5",
   "description": "The official TypeScript library for the Prem AI API",
   "author": "Prem AI <>",
   "types": "dist/index.d.ts",
