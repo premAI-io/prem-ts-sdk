@@ -1,4 +1,4 @@
 configured_endpoints: 5
-openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/premai%2Fpremai-00f16dbae533947a0e91ce46499a318ba780da01b36f645b1bd03efa2a5d54c6.yml
-openapi_spec_hash: 28350507fbb384e23220db8e7ba910a8
+openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/premai%2Fpremai-8bffbbe2687f29121552f3bcd87735c67a818cd43ee3a3a256878a83326f334f.yml
+openapi_spec_hash: 348756b8894daa2e53c3058f53774672
 config_hash: 596c7dbcc68c77ca084cf5c3b8db23a6
