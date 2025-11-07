@@ -1,4 +1,4 @@
-# Prem AI TypeScript API Library
+# Prem AI TypeScript API Library.
 
 [![NPM version](<https://img.shields.io/npm/v/premai.svg?label=npm%20(stable)>)](https://npmjs.org/package/premai) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/premai)
 
