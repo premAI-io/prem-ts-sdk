@@ -18,6 +18,22 @@ import * as API from './resources/index';
 import { APIPromise } from './core/api-promise';
 import { Chat, ChatCompletionsParams, ChatCompletionsResponse } from './resources/chat';
 import {
+  DatasetAddDatapointParams,
+  DatasetAddDatapointResponse,
+  DatasetCreateFromJSONLParams,
+  DatasetCreateFromJSONLResponse,
+  DatasetCreateSyntheticParams,
+  DatasetCreateSyntheticResponse,
+  DatasetGetResponse,
+  Datasets,
+} from './resources/datasets';
+import {
+  Finetuning,
+  FinetuningCreateParams,
+  FinetuningCreateResponse,
+  FinetuningGetResponse,
+} from './resources/finetuning';
+import {
   ModelCheckStatusParams,
   ModelCheckStatusResponse,
   ModelListResponse,
@@ -27,6 +43,27 @@ import {
   ModelUnloadResponse,
   Models,
 } from './resources/models';
+import {
+  ProjectCreateParams,
+  ProjectCreateResponse,
+  ProjectGetTreeResponse,
+  ProjectListResponse,
+  Projects,
+} from './resources/projects';
+import {
+  RecommendationGenerateParams,
+  RecommendationGenerateResponse,
+  RecommendationGetParams,
+  RecommendationGetResponse,
+  Recommendations,
+} from './resources/recommendations';
+import {
+  SnapshotCreateFromFilesParams,
+  SnapshotCreateFromFilesResponse,
+  SnapshotCreateParams,
+  SnapshotCreateResponse,
+  Snapshots,
+} from './resources/snapshots';
 import { type Fetch } from './internal/builtin-types';
 import { HeadersLike, NullableHeaders, buildHeaders } from './internal/headers';
 import { FinalRequestOptions, RequestOptions } from './internal/request-options';
@@ -137,7 +174,7 @@ export class PremAI {
    * API Client for interfacing with the Prem AI API.
    *
    * @param {string | undefined} [opts.apiKey=process.env['PREMAI_API_KEY'] ?? undefined]
-   * @param {string} [opts.baseURL=process.env['PREM_AI_BASE_URL'] ?? https://studio.premai.io] - Override the default base URL for the API.
+   * @param {string} [opts.baseURL=process.env['PREM_AI_BASE_URL'] ?? http://localhost:3000] - Override the default base URL for the API.
    * @param {number} [opts.timeout=1 minute] - The maximum amount of time (in milliseconds) the client will wait for a response before timing out.
    * @param {MergedRequestInit} [opts.fetchOptions] - Additional `RequestInit` options to be passed to `fetch` calls.
    * @param {Fetch} [opts.fetch] - Specify a custom `fetch` function implementation.
@@ -159,7 +196,7 @@ export class PremAI {
     const options: ClientOptions = {
       apiKey,
       ...opts,
-      baseURL: baseURL || `https://studio.premai.io`,
+      baseURL: baseURL || `http://localhost:3000`,
     };
 
     this.baseURL = options.baseURL!;
@@ -205,7 +242,7 @@ export class PremAI {
    * Check whether the base URL is set to its default.
    */
   #baseURLOverridden(): boolean {
-    return this.baseURL !== 'https://studio.premai.io';
+    return this.baseURL !== 'http://localhost:3000';
   }
 
   protected defaultQuery(): Record<string, string | undefined> | undefined {
@@ -726,10 +763,20 @@ export class PremAI {
 
   chat: API.Chat = new API.Chat(this);
   models: API.Models = new API.Models(this);
+  projects: API.Projects = new API.Projects(this);
+  datasets: API.Datasets = new API.Datasets(this);
+  snapshots: API.Snapshots = new API.Snapshots(this);
+  recommendations: API.Recommendations = new API.Recommendations(this);
+  finetuning: API.Finetuning = new API.Finetuning(this);
 }
 
 PremAI.Chat = Chat;
 PremAI.Models = Models;
+PremAI.Projects = Projects;
+PremAI.Datasets = Datasets;
+PremAI.Snapshots = Snapshots;
+PremAI.Recommendations = Recommendations;
+PremAI.Finetuning = Finetuning;
 
 export declare namespace PremAI {
   export type RequestOptions = Opts.RequestOptions;
@@ -749,5 +796,47 @@ export declare namespace PremAI {
     type ModelCheckStatusParams as ModelCheckStatusParams,
     type ModelLoadParams as ModelLoadParams,
     type ModelUnloadParams as ModelUnloadParams,
+  };
+
+  export {
+    Projects as Projects,
+    type ProjectCreateResponse as ProjectCreateResponse,
+    type ProjectListResponse as ProjectListResponse,
+    type ProjectGetTreeResponse as ProjectGetTreeResponse,
+    type ProjectCreateParams as ProjectCreateParams,
+  };
+
+  export {
+    Datasets as Datasets,
+    type DatasetAddDatapointResponse as DatasetAddDatapointResponse,
+    type DatasetCreateFromJSONLResponse as DatasetCreateFromJSONLResponse,
+    type DatasetCreateSyntheticResponse as DatasetCreateSyntheticResponse,
+    type DatasetGetResponse as DatasetGetResponse,
+    type DatasetAddDatapointParams as DatasetAddDatapointParams,
+    type DatasetCreateFromJSONLParams as DatasetCreateFromJSONLParams,
+    type DatasetCreateSyntheticParams as DatasetCreateSyntheticParams,
+  };
+
+  export {
+    Snapshots as Snapshots,
+    type SnapshotCreateResponse as SnapshotCreateResponse,
+    type SnapshotCreateFromFilesResponse as SnapshotCreateFromFilesResponse,
+    type SnapshotCreateParams as SnapshotCreateParams,
+    type SnapshotCreateFromFilesParams as SnapshotCreateFromFilesParams,
+  };
+
+  export {
+    Recommendations as Recommendations,
+    type RecommendationGenerateResponse as RecommendationGenerateResponse,
+    type RecommendationGetResponse as RecommendationGetResponse,
+    type RecommendationGenerateParams as RecommendationGenerateParams,
+    type RecommendationGetParams as RecommendationGetParams,
+  };
+
+  export {
+    Finetuning as Finetuning,
+    type FinetuningCreateResponse as FinetuningCreateResponse,
+    type FinetuningGetResponse as FinetuningGetResponse,
+    type FinetuningCreateParams as FinetuningCreateParams,
   };
 }
