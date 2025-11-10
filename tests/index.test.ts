@@ -302,13 +302,13 @@ describe('instantiate client', () => {
     test('empty env variable', () => {
       process.env['PREM_AI_BASE_URL'] = ''; // empty
       const client = new PremAI({ apiKey: 'My API Key' });
-      expect(client.baseURL).toEqual('https://studio.premai.io');
+      expect(client.baseURL).toEqual('http://localhost:3000');
     });
 
     test('blank env variable', () => {
       process.env['PREM_AI_BASE_URL'] = '  '; // blank
       const client = new PremAI({ apiKey: 'My API Key' });
-      expect(client.baseURL).toEqual('https://studio.premai.io');
+      expect(client.baseURL).toEqual('http://localhost:3000');
     });
 
     test('in request options', () => {
