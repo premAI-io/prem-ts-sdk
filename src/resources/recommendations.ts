@@ -19,12 +19,8 @@ export class Recommendations extends APIResource {
   /**
    * Get recommendations status for a snapshot
    */
-  get(
-    snapshotID: string,
-    query: RecommendationGetParams | null | undefined = {},
-    options?: RequestOptions,
-  ): APIPromise<RecommendationGetResponse> {
-    return this._client.get(path`/api/v1/public/recommendations/${snapshotID}`, { query, ...options });
+  get(snapshotID: string, options?: RequestOptions): APIPromise<RecommendationGetResponse> {
+    return this._client.get(path`/api/v1/public/recommendations/${snapshotID}`, options);
   }
 }
 
@@ -74,15 +70,6 @@ export namespace RecommendationGetResponse {
 
 export interface RecommendationGenerateParams {
   snapshot_id: string;
-
-  /**
-   * false for standard models, true for reasoning models
-   */
-  reasoning?: boolean | null;
-}
-
-export interface RecommendationGetParams {
-  reasoning?: 'true' | 'false';
 }
 
 export declare namespace Recommendations {
@@ -90,6 +77,5 @@ export declare namespace Recommendations {
     type RecommendationGenerateResponse as RecommendationGenerateResponse,
     type RecommendationGetResponse as RecommendationGetResponse,
     type RecommendationGenerateParams as RecommendationGenerateParams,
-    type RecommendationGetParams as RecommendationGetParams,
   };
 }

@@ -54,26 +54,105 @@ export namespace ProjectGetTreeResponse {
   export interface Project {
     id: string;
 
-    type: 'project' | 'dataset' | 'snapshot' | 'finetuning-job' | 'experiment';
+    name: string;
 
-    children?: Array<unknown>;
+    type: 'project';
 
-    label?: string;
+    children?: Array<Project.Child>;
+  }
 
-    metadata?: unknown;
+  export namespace Project {
+    export interface Child {
+      id: string;
 
-    name?: string;
+      label: string;
 
-    status?:
-      | 'processing'
-      | 'completed'
-      | 'failed'
-      | 'pending'
-      | 'queued'
-      | 'running'
-      | 'deploying'
-      | 'succeeded'
-      | 'deleted';
+      metadata: Child.Metadata;
+
+      status: 'processing' | 'completed' | 'failed';
+
+      type: 'dataset';
+
+      children?: Array<Child.Child>;
+    }
+
+    export namespace Child {
+      export interface Metadata {
+        id: string;
+
+        datapoints_count: number;
+      }
+
+      export interface Child {
+        id: string;
+
+        label: string;
+
+        metadata: Child.Metadata;
+
+        type: 'snapshot';
+
+        children?: Array<Child.Child>;
+      }
+
+      export namespace Child {
+        export interface Metadata {
+          id: string;
+
+          created_at: string;
+
+          training_count: number;
+
+          validation_count: number;
+        }
+
+        export interface Child {
+          id: string;
+
+          label: string;
+
+          metadata: Child.Metadata;
+
+          status: 'processing' | 'completed' | 'failed';
+
+          type: 'finetuning-job';
+
+          children?: Array<Child.Child>;
+        }
+
+        export namespace Child {
+          export interface Metadata {
+            id: string;
+
+            reasoning: boolean;
+          }
+
+          export interface Child {
+            id: string;
+
+            label: string;
+
+            metadata: Child.Metadata;
+
+            status: 'pending' | 'queued' | 'running' | 'deploying' | 'succeeded' | 'failed' | 'deleted';
+
+            type: 'experiment';
+          }
+
+          export namespace Child {
+            export interface Metadata {
+              id: string;
+
+              base_model_id: string;
+
+              experiment_number: number;
+
+              model_id?: string;
+            }
+          }
+        }
+      }
+    }
   }
 }
 

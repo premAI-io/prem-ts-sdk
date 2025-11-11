@@ -33,6 +33,7 @@ describe('resource datasets', () => {
   // Prism tests are disabled
   test.skip('createFromJSONL: only required params', async () => {
     const responsePromise = client.datasets.createFromJSONL({
+      file: await toFile(Buffer.from('# my file contents'), 'README.md'),
       name: 'x',
       project_id: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
     });
@@ -48,9 +49,9 @@ describe('resource datasets', () => {
   // Prism tests are disabled
   test.skip('createFromJSONL: required and optional params', async () => {
     const response = await client.datasets.createFromJSONL({
+      file: await toFile(Buffer.from('# my file contents'), 'README.md'),
       name: 'x',
       project_id: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
-      file: await toFile(Buffer.from('# my file contents'), 'README.md'),
     });
   });
 
@@ -76,14 +77,13 @@ describe('resource datasets', () => {
       name: 'x',
       pairs_to_generate: 1,
       project_id: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
-      chunk_size: 1000,
+      answer_format: 'answer_format',
+      example_answers: ['string'],
+      example_questions: ['string'],
       files: [await toFile(Buffer.from('# my file contents'), 'README.md')],
-      pair_type: 'qa',
-      question_answer_guidance: 'question_answer_guidance',
-      rules_and_constraints: 'rules_and_constraints',
-      system_prompt: 'system_prompt',
+      question_format: 'question_format',
+      rules: ['string'],
       temperature: 0,
-      user_instructions: 'user_instructions',
       website_urls: ['https://example.com'],
       youtube_urls: ['https://example.com'],
     });

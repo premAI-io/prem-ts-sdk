@@ -53,7 +53,6 @@ import {
 import {
   RecommendationGenerateParams,
   RecommendationGenerateResponse,
-  RecommendationGetParams,
   RecommendationGetResponse,
   Recommendations,
 } from './resources/recommendations';
@@ -830,7 +829,6 @@ export declare namespace PremAI {
     type RecommendationGenerateResponse as RecommendationGenerateResponse,
     type RecommendationGetResponse as RecommendationGetResponse,
     type RecommendationGenerateParams as RecommendationGenerateParams,
-    type RecommendationGetParams as RecommendationGetParams,
   };
 
   export {

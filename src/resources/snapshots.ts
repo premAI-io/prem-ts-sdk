@@ -37,25 +37,40 @@ export interface SnapshotCreateFromFilesResponse {
 }
 
 export interface SnapshotCreateParams {
+  /**
+   * Dataset ID to snapshot. The dataset must belong to the authenticated workspace.
+   */
   dataset_id: string;
 
+  /**
+   * Percentage of datapoints to assign to training. Remaining datapoints go to
+   * validation.
+   */
   split_percentage?: number;
 }
 
 export interface SnapshotCreateFromFilesParams {
+  /**
+   * Snapshot name shown in the dashboard once the snapshot is created.
+   */
   label: string;
 
+  /**
+   * Project ID that will own the generated snapshot. Must match an existing project.
+   */
   project_id: string;
 
   /**
-   * JSONL training file
+   * Required JSONL training file. Upload line-delimited messages that will form the
+   * training split.
    */
-  training_file?: Uploadable;
+  training_file: Uploadable;
 
   /**
-   * JSONL validation file
+   * Required JSONL validation file. Upload line-delimited messages reserved for
+   * validation.
    */
-  validation_file?: Uploadable;
+  validation_file: Uploadable;
 }
 
 export declare namespace Snapshots {

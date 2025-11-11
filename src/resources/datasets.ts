@@ -98,14 +98,21 @@ export namespace DatasetAddDatapointParams {
 }
 
 export interface DatasetCreateFromJSONLParams {
-  name: string;
-
-  project_id: string;
+  /**
+   * Required JSONL upload. Each line should be a JSON object containing a "messages"
+   * array (system/user/assistant) used to seed the dataset.
+   */
+  file: Uploadable;
 
   /**
-   * JSONL file
+   * Human-readable name shown in the dashboard once the dataset is created.
    */
-  file?: Uploadable;
+  name: string;
+
+  /**
+   * Project ID that will own the dataset. Must match a project you created.
+   */
+  project_id: string;
 }
 
 export interface DatasetCreateSyntheticParams {
@@ -116,9 +123,19 @@ export interface DatasetCreateSyntheticParams {
   project_id: string;
 
   /**
-   * Text chunk size for processing
+   * Answer format template
    */
-  chunk_size?: number;
+  answer_format?: string;
+
+  /**
+   * Example answers
+   */
+  example_answers?: Array<string>;
+
+  /**
+   * Example questions
+   */
+  example_questions?: Array<string>;
 
   /**
    * Optional: PDF, DOCX, etc.
@@ -126,24 +143,14 @@ export interface DatasetCreateSyntheticParams {
   files?: Array<Uploadable>;
 
   /**
-   * Type of pairs to generate
+   * Question format template
    */
-  pair_type?: 'qa' | 'cot' | 'summary';
+  question_format?: string;
 
   /**
-   * Focus on...
+   * Array of rules and constraints
    */
-  question_answer_guidance?: string;
-
-  /**
-   * Avoid...
-   */
-  rules_and_constraints?: string;
-
-  /**
-   * You are a helpful assistant...
-   */
-  system_prompt?: string;
+  rules?: Array<string>;
 
   /**
    * 0.0-1.0, controls randomness
@@ -151,17 +158,12 @@ export interface DatasetCreateSyntheticParams {
   temperature?: number | null;
 
   /**
-   * Generate Q&A pairs about...
-   */
-  user_instructions?: string;
-
-  /**
-   * Website URLs as array
+   * Array of website URLs
    */
   website_urls?: Array<string>;
 
   /**
-   * YouTube URLs as array
+   * Array of YouTube URLs
    */
   youtube_urls?: Array<string>;
 }
