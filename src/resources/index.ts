@@ -39,7 +39,6 @@ export {
   type RecommendationGenerateResponse,
   type RecommendationGetResponse,
   type RecommendationGenerateParams,
-  type RecommendationGetParams,
 } from './recommendations';
 export {
   Snapshots,

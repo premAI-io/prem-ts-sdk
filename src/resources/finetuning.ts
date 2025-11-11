@@ -32,8 +32,6 @@ export interface FinetuningGetResponse {
 
   name: string;
 
-  reasoning: boolean;
-
   snapshot_id: string;
 
   status: 'processing' | 'completed' | 'failed';
@@ -67,8 +65,6 @@ export interface FinetuningCreateParams {
   name: string;
 
   snapshot_id: string;
-
-  reasoning?: boolean | null;
 }
 
 export namespace FinetuningCreateParams {

@@ -76,7 +76,7 @@ Types:
 Methods:
 
 - <code title="post /api/v1/public/recommendations/generate">client.recommendations.<a href="./src/resources/recommendations.ts">generate</a>({ ...params }) -> RecommendationGenerateResponse</code>
-- <code title="get /api/v1/public/recommendations/{snapshotId}">client.recommendations.<a href="./src/resources/recommendations.ts">get</a>(snapshotID, { ...params }) -> RecommendationGetResponse</code>
+- <code title="get /api/v1/public/recommendations/{snapshotId}">client.recommendations.<a href="./src/resources/recommendations.ts">get</a>(snapshotID) -> RecommendationGetResponse</code>
 
 # Finetuning
 
