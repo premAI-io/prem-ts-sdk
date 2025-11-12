@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.17.1 (2025-11-12)
+
+Full Changelog: [v0.17.0...v0.17.1](https://github.com/premAI-io/prem-ts-sdk/compare/v0.17.0...v0.17.1)
+
 ## 0.17.0 (2025-11-12)
 
 Full Changelog: [v0.16.0...v0.17.0](https://github.com/premAI-io/prem-ts-sdk/compare/v0.16.0...v0.17.0)
