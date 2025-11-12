@@ -40,10 +40,4 @@ export {
   type RecommendationGetResponse,
   type RecommendationGenerateParams,
 } from './recommendations';
-export {
-  Snapshots,
-  type SnapshotCreateResponse,
-  type SnapshotCreateFromFilesResponse,
-  type SnapshotCreateParams,
-  type SnapshotCreateFromFilesParams,
-} from './snapshots';
+export { Snapshots, type SnapshotCreateResponse, type SnapshotCreateParams } from './snapshots';
