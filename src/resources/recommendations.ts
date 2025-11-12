@@ -29,6 +29,8 @@ export interface RecommendationGenerateResponse {
 }
 
 export interface RecommendationGetResponse {
+  recommended_experiments: Array<RecommendationGetResponse.RecommendedExperiment> | null;
+
   recommended_models: Array<RecommendationGetResponse.RecommendedModel> | null;
 
   snapshot_id: string;
@@ -37,33 +39,49 @@ export interface RecommendationGetResponse {
 }
 
 export namespace RecommendationGetResponse {
+  export interface RecommendedExperiment {
+    base_model_id: string;
+
+    batch_size: number;
+
+    learning_rate_multiplier: number;
+
+    lora: boolean;
+
+    n_epochs: number;
+
+    reason_for_recommendation: string | null;
+
+    recommended: boolean;
+  }
+
   export interface RecommendedModel {
-    baseModelId: string;
+    base_model_id: string;
 
-    full_hyperparameters: RecommendedModel.FullHyperparameters;
+    full_hyperparameters: RecommendedModel.FullHyperparameters | null;
 
-    lora_hyperparameters: RecommendedModel.LoraHyperparameters;
+    lora_hyperparameters: RecommendedModel.LoraHyperparameters | null;
 
-    reasonForRecommendation: string | null;
+    reason_for_recommendation: string | null;
 
     recommended: boolean;
   }
 
   export namespace RecommendedModel {
     export interface FullHyperparameters {
-      batchSize: number;
+      batch_size: number;
 
-      learningRateMultiplier: number;
+      learning_rate_multiplier: number;
 
-      nEpochs: number;
+      n_epochs: number;
     }
 
     export interface LoraHyperparameters {
-      batchSize: number;
+      batch_size: number;
 
-      learningRateMultiplier: number;
+      learning_rate_multiplier: number;
 
-      nEpochs: number;
+      n_epochs: number;
     }
   }
 }

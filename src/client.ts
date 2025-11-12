@@ -56,13 +56,7 @@ import {
   RecommendationGetResponse,
   Recommendations,
 } from './resources/recommendations';
-import {
-  SnapshotCreateFromFilesParams,
-  SnapshotCreateFromFilesResponse,
-  SnapshotCreateParams,
-  SnapshotCreateResponse,
-  Snapshots,
-} from './resources/snapshots';
+import { SnapshotCreateParams, SnapshotCreateResponse, Snapshots } from './resources/snapshots';
 import { type Fetch } from './internal/builtin-types';
 import { HeadersLike, NullableHeaders, buildHeaders } from './internal/headers';
 import { FinalRequestOptions, RequestOptions } from './internal/request-options';
@@ -819,9 +813,7 @@ export declare namespace PremAI {
   export {
     Snapshots as Snapshots,
     type SnapshotCreateResponse as SnapshotCreateResponse,
-    type SnapshotCreateFromFilesResponse as SnapshotCreateFromFilesResponse,
     type SnapshotCreateParams as SnapshotCreateParams,
-    type SnapshotCreateFromFilesParams as SnapshotCreateFromFilesParams,
   };
 
   export {
