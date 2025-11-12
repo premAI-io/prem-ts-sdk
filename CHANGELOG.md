@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.17.0 (2025-11-12)
+
+Full Changelog: [v0.16.0...v0.17.0](https://github.com/premAI-io/prem-ts-sdk/compare/v0.16.0...v0.17.0)
+
+### Features
+
+* **api:** change yarn to pnpm manager ([79ab7aa](https://github.com/premAI-io/prem-ts-sdk/commit/79ab7aa037432878a5c842b3949f67d9fd1a30dd))
+
 ## 0.16.0 (2025-11-11)
 
 Full Changelog: [v0.15.5...v0.16.0](https://github.com/premAI-io/prem-ts-sdk/compare/v0.15.5...v0.16.0)
