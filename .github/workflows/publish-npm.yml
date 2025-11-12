@@ -39,3 +39,15 @@ jobs:
         if: failure()
         run: |
           cat /home/runner/.npm/_logs/*.log || echo "No log file found"  
+
+      - name: Notify Slack on Release Success
+        if: success()
+        shell: bash
+        run: |
+          curl -X POST --data '{"text":"✅ Studio NPM SDK Deployed Successfully"}' ${{ secrets.SLACK_DEV_PLATFORM_WEBHOOK_URL }}
+
+      - name: Notify Slack on Release Failure
+        if: failure()
+        shell: bash
+        run: |
+          curl -X POST --data '{"text":"❌ Studio NPM SDK Deployed Failed"}' ${{ secrets.SLACK_DEV_PLATFORM_WEBHOOK_URL }}
