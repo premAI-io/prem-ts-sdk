@@ -59,12 +59,10 @@ Methods:
 Types:
 
 - <code><a href="./src/resources/snapshots.ts">SnapshotCreateResponse</a></code>
-- <code><a href="./src/resources/snapshots.ts">SnapshotCreateFromFilesResponse</a></code>
 
 Methods:
 
 - <code title="post /api/v1/public/snapshots/create">client.snapshots.<a href="./src/resources/snapshots.ts">create</a>({ ...params }) -> SnapshotCreateResponse</code>
-- <code title="post /api/v1/public/snapshots/create-from-files">client.snapshots.<a href="./src/resources/snapshots.ts">createFromFiles</a>({ ...params }) -> SnapshotCreateFromFilesResponse</code>
 
 # Recommendations
 

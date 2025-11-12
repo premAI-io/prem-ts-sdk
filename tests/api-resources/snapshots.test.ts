@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import PremAI, { toFile } from 'premai';
+import PremAI from 'premai';
 
 const client = new PremAI({
   apiKey: 'My API Key',
@@ -25,33 +25,6 @@ describe('resource snapshots', () => {
     const response = await client.snapshots.create({
       dataset_id: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
       split_percentage: 1,
-    });
-  });
-
-  // Prism tests are disabled
-  test.skip('createFromFiles: only required params', async () => {
-    const responsePromise = client.snapshots.createFromFiles({
-      label: 'x',
-      project_id: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
-      training_file: await toFile(Buffer.from('# my file contents'), 'README.md'),
-      validation_file: await toFile(Buffer.from('# my file contents'), 'README.md'),
-    });
-    const rawResponse = await responsePromise.asResponse();
-    expect(rawResponse).toBeInstanceOf(Response);
-    const response = await responsePromise;
-    expect(response).not.toBeInstanceOf(Response);
-    const dataAndResponse = await responsePromise.withResponse();
-    expect(dataAndResponse.data).toBe(response);
-    expect(dataAndResponse.response).toBe(rawResponse);
-  });
-
-  // Prism tests are disabled
-  test.skip('createFromFiles: required and optional params', async () => {
-    const response = await client.snapshots.createFromFiles({
-      label: 'x',
-      project_id: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
-      training_file: await toFile(Buffer.from('# my file contents'), 'README.md'),
-      validation_file: await toFile(Buffer.from('# my file contents'), 'README.md'),
     });
   });
 });
