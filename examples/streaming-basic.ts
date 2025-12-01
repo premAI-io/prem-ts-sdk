@@ -19,8 +19,7 @@ async function main() {
     }
   }
 
-  console.log('\n'); 
+  console.log('\n');
 }
 
 main().catch(console.error);
-

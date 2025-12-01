@@ -1,6 +1,3 @@
-// Custom code: Stream class for OpenAI-compatible streaming
-// This file persists across Stainless codegen runs
-
 import type { PremAI } from '../client';
 import { ReadableStreamToAsyncIterable } from '../internal/shims';
 import { APIError } from './error';
@@ -260,18 +257,18 @@ class LineDecoder {
 
   decode(chunk: Bytes): string[] {
     if (chunk == null) return [];
-    
+
     const text = typeof chunk === 'string' ? chunk : new TextDecoder().decode(chunk);
     this.buffer += text;
-    
+
     const lines: string[] = [];
     let newlineIndex: number;
-    
+
     while ((newlineIndex = this.buffer.indexOf('\n')) !== -1) {
       lines.push(this.buffer.substring(0, newlineIndex));
       this.buffer = this.buffer.substring(newlineIndex + 1);
     }
-    
+
     return lines;
   }
 
@@ -291,4 +288,3 @@ function partition(str: string, delimiter: string): [string, string, string] {
 
   return [str, '', ''];
 }
-
