@@ -78,6 +78,8 @@ export namespace FinetuningCreateParams {
     n_epochs: number;
 
     lora?: boolean | null;
+
+    refinetune_from_experiment_id?: string;
   }
 }
 

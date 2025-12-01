@@ -81,6 +81,16 @@ export interface DatasetGetResponse {
   status: 'processing' | 'completed' | 'failed';
 
   updated_at: string;
+
+  snapshots?: Array<DatasetGetResponse.Snapshot>;
+}
+
+export namespace DatasetGetResponse {
+  export interface Snapshot {
+    id: string;
+
+    created_at: string;
+  }
 }
 
 export interface DatasetAddDatapointParams {
