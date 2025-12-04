@@ -74,18 +74,34 @@ export interface DatasetGetResponse {
 
   datapoints_count: number;
 
+  /**
+   * List of labels associated with the dataset
+   */
+  labels: Array<DatasetGetResponse.Label>;
+
   name: string;
 
   project_id: string | null;
 
+  /**
+   * List of snapshots associated with the dataset
+   */
+  snapshots: Array<DatasetGetResponse.Snapshot>;
+
   status: 'processing' | 'completed' | 'failed';
 
   updated_at: string;
-
-  snapshots?: Array<DatasetGetResponse.Snapshot>;
 }
 
 export namespace DatasetGetResponse {
+  export interface Label {
+    id: string;
+
+    description: string | null;
+
+    name: string;
+  }
+
   export interface Snapshot {
     id: string;
 
