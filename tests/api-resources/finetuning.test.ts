@@ -36,6 +36,7 @@ describe('resource finetuning', () => {
           learning_rate_multiplier: 1,
           n_epochs: 1,
           lora: true,
+          refinetune_from_experiment_id: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
         },
       ],
       name: 'x',

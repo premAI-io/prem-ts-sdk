@@ -3,72 +3,13 @@
 import { APIResource } from '../core/resource';
 import { APIPromise } from '../core/api-promise';
 import { RequestOptions } from '../internal/request-options';
-// Custom code: Add streaming support
-import { Stream } from '../core/streaming';
-import type { APIResponseProps } from '../internal/parse';
-
-// Custom code: Chat completion chunk type for streaming
-export interface ChatCompletionChunk {
-  id: string;
-  object: 'chat.completion.chunk';
-  created: number;
-  model: string;
-  choices: Array<ChatCompletionChunk.Choice>;
-  system_fingerprint?: string | null;
-  usage?: ChatCompletionsResponse.Usage | null;
-}
-
-export namespace ChatCompletionChunk {
-  export interface Choice {
-    index: number;
-    delta: Choice.Delta;
-    finish_reason: 'stop' | 'length' | 'tool_calls' | 'content_filter' | 'function_call' | null;
-  }
-
-  export namespace Choice {
-    export interface Delta {
-      role?: 'assistant' | 'tool';
-      content?: string | null;
-      refusal?: null;
-    }
-  }
-}
 
 export class Chat extends APIResource {
   /**
    * Create a chat completion (OpenAI compatible).
-   * When stream=true, returns a Stream that can be iterated with for-await-of.
    */
-  completions(
-    body: ChatCompletionsParams & { stream?: false },
-    options?: RequestOptions,
-  ): APIPromise<ChatCompletionsResponse>;
-  completions(
-    body: ChatCompletionsParams & { stream: true },
-    options?: RequestOptions,
-  ): APIPromise<Stream<ChatCompletionChunk>>;
-  completions(
-    body: ChatCompletionsParams,
-    options?: RequestOptions,
-  ): APIPromise<ChatCompletionsResponse> | APIPromise<Stream<ChatCompletionChunk>> {
-    const promise = this._client.post('/api/v1/chat/completions', { body, ...options });
-
-    // Custom code: If streaming, return a Stream instead of parsed response
-    if (body.stream) {
-      const controller = new AbortController();
-      // Access responsePromise through type assertion (it's private but we need it)
-      const responsePromise = (promise as any).responsePromise as Promise<APIResponseProps>;
-      return new APIPromise<Stream<ChatCompletionChunk>>(
-        this._client,
-        responsePromise,
-        async (client, props: APIResponseProps) => {
-          const response = props.response;
-          return Stream.fromSSEResponse<ChatCompletionChunk>(response, controller, this._client);
-        },
-      );
-    }
-
-    return promise as APIPromise<ChatCompletionsResponse>;
+  completions(body: ChatCompletionsParams, options?: RequestOptions): APIPromise<ChatCompletionsResponse> {
+    return this._client.post('/api/v1/chat/completions', { body, ...options });
   }
 }
 

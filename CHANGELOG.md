@@ -1,5 +1,29 @@
 # Changelog
 
+## 0.19.0 (2025-12-06)
+
+Full Changelog: [v0.18.1...v0.19.0](https://github.com/premAI-io/prem-ts-sdk/compare/v0.18.1...v0.19.0)
+
+### Features
+
+* **api:** api update ([1fd6a3d](https://github.com/premAI-io/prem-ts-sdk/commit/1fd6a3d8acba16ca62bc5418c6190bb8e8c02c1d))
+
+
+### Bug Fixes
+
+* **mcp:** correct code tool API endpoint ([02c87ce](https://github.com/premAI-io/prem-ts-sdk/commit/02c87ce5a17565003ef82bca5f4f96f9a5c46dc6))
+* **mcp:** return correct lines on typescript errors ([a8a0313](https://github.com/premAI-io/prem-ts-sdk/commit/a8a03134878e1dabb3241de2e79bba0b3a1216cc))
+
+
+### Chores
+
+* **client:** fix logger property type ([208fde2](https://github.com/premAI-io/prem-ts-sdk/commit/208fde29520b2410031d4b9f0a4ac266ccc9520e))
+* **internal:** codegen related update ([6641a11](https://github.com/premAI-io/prem-ts-sdk/commit/6641a11faf4f87dc53497d05fa3ec59c35c9f7e9))
+* **internal:** codegen related update ([87a6511](https://github.com/premAI-io/prem-ts-sdk/commit/87a651108f4ea2f9ba33755d308d6871d4c6b0ee))
+* **internal:** configure pnpm minimumReleaseAge to 1 day ([2362d7e](https://github.com/premAI-io/prem-ts-sdk/commit/2362d7e8cac7d13c0a05bb5f59eca0e023faffda))
+* **internal:** upgrade eslint ([89663d2](https://github.com/premAI-io/prem-ts-sdk/commit/89663d2ed5012dbe7ca13b3c27807a95c7acf485))
+* sync repo ([9f8b4a6](https://github.com/premAI-io/prem-ts-sdk/commit/9f8b4a6fd94492f9bfff30cd059ac183cea6bf39))
+
 ## 0.18.1 (2025-11-13)
 
 Full Changelog: [v0.18.0...v0.18.1](https://github.com/premAI-io/prem-ts-sdk/compare/v0.18.0...v0.18.1)
