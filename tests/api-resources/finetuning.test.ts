@@ -12,7 +12,13 @@ describe('resource finetuning', () => {
   test.skip('create: only required params', async () => {
     const responsePromise = client.finetuning.create({
       experiments: [
-        { base_model_id: 'base_model_id', batch_size: 1, learning_rate_multiplier: 1, n_epochs: 1 },
+        {
+          base_model_id: 'base_model_id',
+          batch_size: 1,
+          learning_rate_multiplier: 1,
+          n_epochs: 1,
+          training_type: 'full',
+        },
       ],
       name: 'x',
       snapshot_id: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
@@ -35,7 +41,7 @@ describe('resource finetuning', () => {
           batch_size: 1,
           learning_rate_multiplier: 1,
           n_epochs: 1,
-          lora: true,
+          training_type: 'full',
           refinetune_from_experiment_id: '182bd5e5-6e1a-4fe4-a799-aa6d9a6ab26e',
         },
       ],
