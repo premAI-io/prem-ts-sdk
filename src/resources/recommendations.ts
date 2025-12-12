@@ -46,13 +46,13 @@ export namespace RecommendationGetResponse {
 
     learning_rate_multiplier: number;
 
-    lora: boolean;
-
     n_epochs: number;
 
     reason_for_recommendation: string | null;
 
     recommended: boolean;
+
+    training_type: 'full' | 'lora' | 'qlora';
   }
 
   export interface RecommendedModel {

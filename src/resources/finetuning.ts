@@ -49,11 +49,11 @@ export namespace FinetuningGetResponse {
 
     learning_rate_multiplier: number;
 
-    lora: boolean;
-
     n_epochs: number;
 
     status: 'pending' | 'queued' | 'running' | 'deploying' | 'succeeded' | 'failed' | 'deleted';
+
+    training_type: 'full' | 'lora' | 'qlora';
 
     model_id?: string;
   }
@@ -77,7 +77,9 @@ export namespace FinetuningCreateParams {
 
     n_epochs: number;
 
-    lora?: boolean | null;
+    training_type: 'full' | 'lora' | 'qlora';
+
+    refinetune_from_experiment_id?: string;
   }
 }
 
