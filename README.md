@@ -28,7 +28,10 @@ const client = new PremAI({
   apiKey: process.env['PREMAI_API_KEY'], // This is the default and can be omitted
 });
 
-const response = await client.chat.completions({ messages: [{ role: 'system' }], model: 'REPLACE_ME' });
+const response = await client.chat.completions({
+  messages: [{ role: 'system' }],
+  model: 'REPLACE_ME',
+});
 
 console.log(response.id);
 ```
@@ -45,7 +48,10 @@ const client = new PremAI({
   apiKey: process.env['PREMAI_API_KEY'], // This is the default and can be omitted
 });
 
-const params: PremAI.ChatCompletionsParams = { messages: [{ role: 'system' }], model: 'REPLACE_ME' };
+const params: PremAI.ChatCompletionsParams = {
+  messages: [{ role: 'system' }],
+  model: 'REPLACE_ME',
+};
 const response: PremAI.ChatCompletionsResponse = await client.chat.completions(params);
 ```
 
