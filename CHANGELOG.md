@@ -1,5 +1,29 @@
 # Changelog
 
+## 0.19.1 (2026-02-12)
+
+Full Changelog: [v0.19.0...v0.19.1](https://github.com/premAI-io/prem-ts-sdk/compare/v0.19.0...v0.19.1)
+
+### Bug Fixes
+
+* **client:** avoid memory leak with abort signals ([5ea964a](https://github.com/premAI-io/prem-ts-sdk/commit/5ea964a13f941c549d5508fcec56275ed6ff4ea5))
+* **client:** avoid removing abort listener too early ([06372f9](https://github.com/premAI-io/prem-ts-sdk/commit/06372f912ec8b23078af5ced7f7cbbfa66cdfb4d))
+
+
+### Chores
+
+* break long lines in snippets into multiline ([e713a27](https://github.com/premAI-io/prem-ts-sdk/commit/e713a2792d3dfefe4cb023a3ad01eb961349f7ce))
+* **ci:** upgrade `actions/github-script` ([9918b89](https://github.com/premAI-io/prem-ts-sdk/commit/9918b89fac80566462aa91bc3be9281756ff187a))
+* **client:** do not parse responses with empty content-length ([ed854fc](https://github.com/premAI-io/prem-ts-sdk/commit/ed854fce0fb2e7b5c35260d7a1c4bd1eeb3ed177))
+* **client:** restructure abort controller binding ([410fe23](https://github.com/premAI-io/prem-ts-sdk/commit/410fe232c2a014bb700ef4d2cc05e9e023fa2de2))
+* **internal:** codegen related update ([1710a01](https://github.com/premAI-io/prem-ts-sdk/commit/1710a010d9ee4ab23cac685d431109fec86038a9))
+* **internal:** codegen related update ([0e7c922](https://github.com/premAI-io/prem-ts-sdk/commit/0e7c92294a782e1ee33ea99e859fc5e4290af826))
+* **internal:** update `actions/checkout` version ([ba4e7d8](https://github.com/premAI-io/prem-ts-sdk/commit/ba4e7d87d0dae288cff074b41c4b6779afdbe23a))
+* **internal:** update lock file ([44c4900](https://github.com/premAI-io/prem-ts-sdk/commit/44c4900325bc4fad93ffc7056419fa9af3c48ef0))
+* **internal:** upgrade babel, qs, js-yaml ([6f58619](https://github.com/premAI-io/prem-ts-sdk/commit/6f58619d46c64a88d308dd4b798ac1cc814d5820))
+* **internal:** upgrade brace-expansion and @babel/helpers ([101a0ad](https://github.com/premAI-io/prem-ts-sdk/commit/101a0ad9d126b2fefe6ec83b03b5a9e4fc491990))
+* **internal:** upgrade pnpm ([d77d77b](https://github.com/premAI-io/prem-ts-sdk/commit/d77d77bb92a32f03831006a9bd4791ca504de566))
+
 ## 0.19.0 (2025-12-11)
 
 Full Changelog: [v0.18.1...v0.19.0](https://github.com/premAI-io/prem-ts-sdk/compare/v0.18.1...v0.19.0)
